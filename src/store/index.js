@@ -8,6 +8,7 @@ export default new Vuex.Store({
     userInfo: "UserName",
     imageInfo:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_8jyrBjic0ELBWNbA2JH7ufzOb3jkJvN8Q&usqp=CAU",
+    showDialog: false,
   },
   mutations: {
     setUserInfo(state, info) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     setImageInfo(state, info) {
       state.imageInfo = info;
     },
+    setDialog(state, info) {
+      state.showDialog = info;
+    },
   },
   actions: {
     actionSetUserInfo({ commit }, info) {
@@ -23,6 +27,9 @@ export default new Vuex.Store({
     },
     actionSetImageInfo({ commit }, info) {
       commit("setImageInfo", info);
+    },
+    actionSetDialog({ commit }, info) {
+      commit("setDialog", info);
     },
   },
   modules: {},

@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-app-bar app elevate-on-scroll elevation="3" color="white">
     <v-app-bar-nav-icon @click="$emit('drawerEvent')"></v-app-bar-nav-icon>
     <v-spacer />
@@ -11,7 +12,7 @@
           append-icon="mdi-magnify"
           outlined
           rounded
-          placeholder="Search"
+          placeholder="Tìm Kiếm"
         />
       </v-form>
     </v-col>
@@ -63,27 +64,39 @@
         <span style="cursor: pointer" v-bind="attrs" v-on="on">
           <v-chip link>
             <v-badge dot bottom color="green" offset-y="10" offset-x="10">
-              <v-avatar size="40">
+              <v-avatar size="40" v-if="imgUrl">
                 <v-img
-                  :src="imageInfo"
+                  :src="imgUrl"
+                />
+              </v-avatar>
+              <v-avatar size="40" v-else>
+                <v-img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_8jyrBjic0ELBWNbA2JH7ufzOb3jkJvN8Q&usqp=CAU"
                 />
               </v-avatar>
             </v-badge>
-            <span class="ml-3">{{ userInfo }}</span>
+            <span class="ml-3" v-if="lastName && firstName">{{ lastName }} {{ firstName }}</span>
+            <span class="ml-3" v-else>Người dùng mới</span>
           </v-chip>
         </span>
       </template>
       <v-list width="250" class="py-0">
         <v-list-item two-line>
-          <v-list-item-avatar>
-            <img
-              :src="imageInfo"
+          <v-list-item-avatar v-if="imgUrl">
+            <img style="object-fit: cover;"
+              :src="imgUrl"
+            />
+          </v-list-item-avatar>
+          <v-list-item-avatar v-else>
+            <img style="object-fit: cover;"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_8jyrBjic0ELBWNbA2JH7ufzOb3jkJvN8Q&usqp=CAU"
             />
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>{{ userInfo }}</v-list-item-title>
-            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+            <v-list-item-title v-if="lastName && lastName">{{ lastName }} {{ firstName }}</v-list-item-title>
+            <v-list-item-title v-else>Người dùng mới</v-list-item-title>
+            <v-list-item-subtitle class="mt-1 text-uppercase" style="line-height: 1.4;">{{role}}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-divider />
@@ -91,7 +104,7 @@
           link
           v-for="(menu, i) in menus"
           :key="i"
-          @click="logout(menu.action)"
+          @click="listAction(menu.action)"
         >
           <v-list-item-icon>
             <v-icon>{{ menu.icon }}</v-icon>
@@ -103,73 +116,111 @@
       </v-list>
     </v-menu>
   </v-app-bar>
+  <popup :show="showDialog"
+          :cancel="cancel"
+          :confirm="confirm"
+          text="Có! Mình muốn đăng xuất ^^"
+          textCancel="Không nha :v"
+          title="Thông báo?"
+          description="Bạn có muốn đăng xuất không ???"></popup>
+  </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+// import { mapState } from "vuex";
+import axios from "axios"
+import Popup from './Popup.vue';
 export default {
+  components: { Popup },
   name: "Topbar",
   data() {
     return {
       menus: [
-        { title: "Profile", icon: "mdi-account" },
-        { title: "Change Password", icon: "mdi-key" },
-        { title: "Setting", icon: "mdi-cog" },
-        { title: "Logout", icon: "mdi-logout", action: "logout" },
+        { title: "Thông Tin Nhân Viên", icon: "mdi-account", action: "profile" },
+        { title: "Đổi Mật Khẩu", icon: "mdi-key" },
+        { title: "Cài Đặt", icon: "mdi-cog" },
+        { title: "Đăng Xuất", icon: "mdi-logout", action: "logout" },
       ],
       items: [
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-          title: "Brunch this weekend?",
-          subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+          avatar: "https://oxford.edu.vn/UploadFinder/images/van%20phong%202-compressed.jpg",
+          title: "Phòng Cơ Sở Vật Chất",
+          subtitle: `Bạn vừa được giao nhiệm vụ quản lý LapTop`,
         },
         { divider: true, inset: true },
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-          title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-          subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+          avatar: "https://tuyensinhdhcd.vn/wp-content/uploads/2020/11/cong-viec-nhan-su-gom-nhung-gi-1.jpg",
+          title: 'Phòng Nhân Sự',
+          subtitle: `Phòng của bạn vừa có 1 nhân viên mới`,
         },
         { divider: true, inset: true },
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-          title: "Oui oui",
+          avatar: "https://oxford.edu.vn/UploadFinder/images/van%20phong%202-compressed.jpg",
+          title: "Phòng Cơ Sở Vật Chất",
           subtitle:
-            '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+            'Bạn đã được thu hồi việc quản lý Áo Đồng Phục',
         },
         { divider: true, inset: true },
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-          title: "Birthday gift",
+          avatar: "https://thietkevanphongmienbac.vn/Uploaded_products/img_any/thiet-ke-noi-that-phong-giam-doc-sang-trong-mb1.jpg",
+          title: "Phòng Giám Đốc",
           subtitle:
-            '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+            'Giám đốc đã giao cho bạn 3 nhiệm vụ mới',
         },
         { divider: true, inset: true },
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-          title: "Recipe to try",
+          avatar: "http://giaiphapdaotaovnnp.edu.vn/images/img_baiviet/phong-to-chuc-hanh-chinh.jpg",
+          title: "Phòng Hành Chính",
           subtitle:
-            '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+            'Bạn được mời phòng hành chính nhận lương vào ngày 22/02/2022',
         },
       ],
+      showDialog: false,
+      firstName: '',
+      lastName: '',
+      imgUrl: '',
+      role: '',
     };
   },
-  computed: {
-    ...mapState({
-      userInfo: (state) => state.userInfo,
-      imageInfo: (state) => state.imageInfo,
-    }),
+  // computed: {
+  //   ...mapState({
+  //     userInfo: (state) => state.userInfo,
+  //     imageInfo: (state) => state.imageInfo,
+  //   }),
+  // },
+    async mounted() {
+            const res = await axios.get(`http://localhost:3001/employee`);
+            const dataLogin =JSON.parse(localStorage.getItem("user-info"));
+            let id = dataLogin.email;
+            let data = res.data;
+             const index =  data.find(el => el.email === id )
+            //  const index =  data.map(el => el.email == id)
+             this.firstName = index.firstName
+             this.lastName = index.lastName
+             this.imgUrl = index.imgUrl
+             this.role = index.role
   },
   methods: {
-    logout(action) {
+    listAction(action) {
       if (action === "logout") {
-        if (window.confirm("Bạn có muốn đăng xuất ???")) {
-          localStorage.removeItem("user-info");
-          this.$router.push("/login");
-        }
+        this.showDialog = true;
       }
+      if (action === "profile") {
+        this.$router.push('/userInfo')
+      }
+    },
+    cancel() {
+      this.showDialog = false;
+    },
+    confirm() {
+      localStorage.removeItem("user-info");
+      this.$router.push("/login");
+      this.showDialog = false;
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

@@ -11,7 +11,7 @@
               <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
-                label="Search"
+                label="Tìm Kiếm"
                 single-line
                 hide-details
               ></v-text-field>
@@ -32,30 +32,21 @@
             >
               <template v-slot:[`item.actions`]="">
                 <v-btn class="ma-2" color="primary" dark>
-                  Detail
+                  Chi Tiết
                   <v-icon dark right> mdi-eye </v-icon>
                 </v-btn>
                 <v-btn class="ma-2" color="orange darken-2" dark>
-                  Update
+                  Sửa
                   <v-icon dark right> mdi-pencil </v-icon>
                 </v-btn>
                 <v-btn class="ma-2" color="red" dark>
-                  Delete
-                  <v-icon dark right> mdi-pencil </v-icon>
+                  Xóa
+                  <v-icon dark right> mdi-delete </v-icon>
                 </v-btn>
               </template>
               <template v-slot:no-data>
                 <v-btn color="primary"> Reset </v-btn>
               </template>
-              <!-- <template v-slot:top>
-              <v-text-field
-                v-model="search"
-                append-icon="mdi-magnify"
-                label="Search"
-                single-line
-                hide-details
-                class="mx-5"
-              ></v-text-field> </template> -->
             </v-data-table>
           </v-card>
         </v-col>
@@ -110,7 +101,7 @@ export default {
           align: "center",
         },
         {
-          text: "ACTIONS",
+          text: "Chức Năng",
           value: "actions",
           align: "center",
           sortable: false,
@@ -130,9 +121,6 @@ export default {
 };
 </script>
 <style scoped>
-.elevation-1 {
-  padding-top: 20px !important;
-}
 h1 {
   text-transform: uppercase;
   text-align: center;

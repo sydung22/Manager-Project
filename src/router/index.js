@@ -18,15 +18,7 @@ const routes = [
       {
         path: "/",
         component: () => import("../views/Dashboard"),
-        name: "Dashboard",
-        meta: {
-          requiredAuth: true,
-        },
-      },
-      {
-        path: "/create",
-        name: "Create",
-        component: () => import("./../views/CRUD/Create"),
+        name: "dashboard",
         meta: {
           requiredAuth: true,
         },
@@ -35,6 +27,14 @@ const routes = [
         path: "/user",
         name: "user",
         component: () => import("../views/User"),
+        meta: {
+          requiredAuth: true,
+        },
+      },
+      {
+        path: "/userInfo",
+        name: "userInfo",
+        component: () => import("../components/Infomation"),
         meta: {
           requiredAuth: true,
         },
@@ -98,7 +98,6 @@ router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.requiredAuth) {
     const auth = JSON.parse(localStorage.getItem("user-info"));
     if (auth && auth !== "") {
-      console.log(auth);
       next();
     } else {
       next({ path: "/login" });
