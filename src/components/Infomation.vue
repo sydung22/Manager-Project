@@ -201,7 +201,7 @@ export default {
     };
   },
   async mounted() {
-    const res = await axios.get(`http://localhost:3001/employee`);
+    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee`);
     const dataLogin = JSON.parse(localStorage.getItem("user-info"));
     let id = dataLogin.email;
     let data = res.data;
@@ -215,10 +215,10 @@ export default {
     this.roleName = index.role;
     this.address = index.address;
     this.department = index.depart_name;
-    const resPo = await axios.get(`http://localhost:3001/position`);
+    const resPo = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
     let result = resPo.data.map(a => a.role);
     this.listRole = result
-    const resDe = await axios.get(`http://localhost:3001/departments`);
+    const resDe = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
     let resultDe = resDe.data.map(a => a.depart_name);
     this.listDepartment = resultDe
     console.log(this.roleName);

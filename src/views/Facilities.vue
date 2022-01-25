@@ -268,11 +268,11 @@ export default {
     this.roleEm = dataLogin.role;
     if (dataLogin.role == "Nhân Viên") {
       const resEm = await axios.get(
-        `http://localhost:3001/facilities?email=${dataLogin.email}`
+        `${process.env.VUE_APP_SERVER_URL}/facilities?email=${dataLogin.email}`
       );
       this.facilities = resEm.data;
     } else {
-      const res = await axios.get(`http://localhost:3001/facilities`);
+      const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/facilities`);
       this.facilities = res.data;
     }
   },
@@ -282,7 +282,7 @@ export default {
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`http://localhost:3001/facilities/${this.deleteId}`);
+      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/facilities/${this.deleteId}`);
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
       setTimeout(() => window.location.reload(), 1200);
@@ -300,7 +300,7 @@ export default {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let resFa = await axios.post(`http://localhost:3001/facilities`, {
+        let resFa = await axios.post(`${process.env.VUE_APP_SERVER_URL}/facilities`, {
           facilities_id: this.facilitiesItem.facilities_id,
           title: this.facilitiesItem.title,
           price: this.facilitiesItem.price,

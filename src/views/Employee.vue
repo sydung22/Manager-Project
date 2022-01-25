@@ -501,7 +501,7 @@ export default {
     async DetailsUser(item) {
       this.detailsId = item.id;
       const res = await axios.get(
-        `http://localhost:3001/employee/${this.detailsId}`
+        `${process.env.VUE_APP_SERVER_URL}/employee/${this.detailsId}`
       );
       this.detailsItem = res.data;
     },
@@ -510,7 +510,7 @@ export default {
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`http://localhost:3001/employee/${this.deleteId}`);
+      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/employee/${this.deleteId}`);
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
       setTimeout(() => window.location.reload(), 1200);
@@ -527,12 +527,12 @@ export default {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`http://localhost:3001/user`, {
+        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/user`, {
           email: this.user.email,
           password: this.user.password,
           role: this.user.role,
         });
-        let res2 = await axios.post(`http://localhost:3001/employee`, {
+        let res2 = await axios.post(`${process.env.VUE_APP_SERVER_URL}/employee`, {
           firstName: this.user.firstName,
           lastName: this.user.lastName,
           email: this.user.email,
@@ -564,13 +564,13 @@ export default {
     },
   },
   async mounted() {
-    const res = await axios.get(`http://localhost:3001/employee`);
+    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee`);
     this.employee = res.data;
     console.log(this.employee);
-    const resPo = await axios.get(`http://localhost:3001/position`);
+    const resPo = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
     let result = resPo.data.map((a) => a.role);
     this.listRole = result;
-    const resDe = await axios.get(`http://localhost:3001/departments`);
+    const resDe = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
     let resultDe = resDe.data.map((a) => a.depart_name);
     this.listDepartment = resultDe;
     console.log(this.roleName);

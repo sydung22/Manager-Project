@@ -314,11 +314,11 @@ export default {
   methods: {
     async login() {
       let res = await axios.get(
-        `http://localhost:3001/user?email=${this.user.email}&password=${this.user.password}`
+        `${process.env.VUE_APP_SERVER_URL}/user?email=${this.user.email}&password=${this.user.password}`
       );
       console.log(res);
       if (res.data.length > 0) {
-        // let resEm = await axios.get(`http://localhost:3001/employee?email=${this.user.email}`)
+        // let resEm = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee?email=${this.user.email}`)
         // this.$store.dispatch('actionSetUserInfo', `${resEm.data[0].lastName} ${resEm.data[0].firstName}`);
         setTimeout(() => this.$store.dispatch("actionSetDialog", true), 200);
         // console.log(resEm.status)
@@ -339,12 +339,12 @@ export default {
         this.showDialogSignUp = true;
       } else {
         if (this.userSignUp.password === this.userSignUp.passwordConfirm) {
-          let res = await axios.post(`http://localhost:3001/user`, {
+          let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/user`, {
             email: this.userSignUp.email,
             password: this.userSignUp.password,
             role: this.userSignUp.role,
           });
-          let res2 = await axios.post(`http://localhost:3001/employee`, {
+          let res2 = await axios.post(`${process.env.VUE_APP_SERVER_URL}/employee`, {
             firstName: this.userSignUp.firstName,
             lastName: this.userSignUp.lastName,
             email: this.userSignUp.email,

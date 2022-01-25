@@ -92,7 +92,7 @@ export default {
     };
   },
   async mounted() {
-    const res = await axios.get(`http://localhost:3001/employee`);
+    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee`);
     const dataLogin = JSON.parse(localStorage.getItem("user-info"));
     let id = dataLogin.email;
     let data = res.data;

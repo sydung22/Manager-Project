@@ -244,19 +244,19 @@ export default {
     }),
   },
   async mounted() {
-    const resEm = await axios.get(`http://localhost:3001/employee`);
+    const resEm = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee`);
     this.listEm = resEm.data;
     console.log(this.listEm.length);
 
-    const resFa = await axios.get(`http://localhost:3001/facilities`);
+    const resFa = await axios.get(`${process.env.VUE_APP_SERVER_URL}/facilities`);
     this.listFa = resFa.data;
     console.log(this.listFa.length);
 
-    const resPo = await axios.get(`http://localhost:3001/position`);
+    const resPo = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
     this.listPo = resPo.data;
     console.log(this.listPo.length);
 
-    const resDe = await axios.get(`http://localhost:3001/departments`);
+    const resDe = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
     this.listDe = resDe.data;
     console.log(this.listDe.length);
   },

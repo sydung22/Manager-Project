@@ -112,7 +112,7 @@ export default {
     };
   },
   async mounted() {
-    const res = await axios.get(`http://localhost:3001/payment`);
+    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/payment`);
     if (res.status === 200) {
       this.payment = res.data;
       console.log(this.payment);

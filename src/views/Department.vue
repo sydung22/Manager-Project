@@ -192,7 +192,7 @@ export default {
     };
   },
   async mounted() {
-    const res = await axios.get(`http://localhost:3001/departments`);
+    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
     if (res.status === 200) {
       this.department = res.data;
       console.log(this.department);
@@ -208,7 +208,7 @@ export default {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`http://localhost:3001/departments`, {
+        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/departments`, {
           depart_id: this.departmentItem.depart_id,
           depart_name: this.departmentItem.depart_name,
           depart_address: this.departmentItem.depart_address,
@@ -224,7 +224,7 @@ export default {
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`http://localhost:3001/departments/${this.deleteId}`);
+      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/departments/${this.deleteId}`);
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
       setTimeout(() => window.location.reload(), 1200);

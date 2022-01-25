@@ -179,7 +179,7 @@ export default {
     };
   },
   async mounted() {
-    const res = await axios.get(`http://localhost:3001/position`);
+    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
     if (res.status === 200) {
       this.position = res.data;
       console.log(this.position);
@@ -191,7 +191,7 @@ export default {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`http://localhost:3001/position`, {
+        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/position`, {
           position_id: this.positionItem.position_id,
           role: this.positionItem.role,
         });
@@ -206,7 +206,7 @@ export default {
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`http://localhost:3001/position/${this.deleteId}`);
+      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/position/${this.deleteId}`);
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
       setTimeout(() => window.location.reload(), 1200);
