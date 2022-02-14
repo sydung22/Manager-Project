@@ -16,15 +16,9 @@
                 hide-details
               ></v-text-field>
             </v-card-title>
-            <v-dialog v-model="dialog" persistent max-width="600px">
+            <v-dialog v-model="dialog" persistent max-width="1200px">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="green"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                  class="ms-5 my-4"
-                >
+                <v-btn color="green" dark v-bind="attrs" v-on="on" class="ms-5 my-4">
                   Thêm Mới
                 </v-btn>
               </template>
@@ -35,80 +29,188 @@
                 <v-card-text>
                   <v-container>
                     <v-row>
-                      <v-col cols="12" md="12" class="pb-0 pt-1">
-                        <v-text-field
-                          :counter="30"
-                          label="Họ"
-                          v-model="user.lastName"
-                          required
-                          class="pt-1"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="12" class="pb-0 pt-1">
-                        <v-text-field
-                          :counter="30"
-                          label="Tên"
-                          v-model="user.firstName"
-                          required
-                        ></v-text-field>
-                      </v-col>
+                      <v-col cols="12" sm="4" class="text-center">
+                        <v-container>
+                          <v-row>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                :counter="30"
+                                label="Họ"
+                                v-model="user.lastName"
+                                required
+                                class="pt-1"
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                :counter="30"
+                                label="Tên"
+                                v-model="user.firstName"
+                                required
+                              ></v-text-field>
+                            </v-col>
 
-                      <v-col cols="12" md="12" class="pb-0 pt-1">
-                        <v-text-field
-                          label="E-mail"
-                          v-model="user.email"
-                          required
-                        ></v-text-field>
-                      </v-col>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="E-mail"
+                                v-model="user.email"
+                                required
+                              ></v-text-field>
+                            </v-col>
 
-                      <v-col cols="12" md="12" class="pb-0 pt-1">
-                        <v-text-field
-                          label="Password"
-                          v-model="user.password"
-                          type="password"
-                          required
-                        ></v-text-field>
-                      </v-col>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Password"
+                                v-model="user.password"
+                                type="password"
+                                required
+                              ></v-text-field>
+                            </v-col>
 
-                      <v-col cols="12" md="12" class="pb-0 pt-1">
-                        <v-text-field
-                          label="Link Hình Ảnh"
-                          v-model="user.imgUrl"
-                          required
-                        ></v-text-field>
-                      </v-col>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Link Hình Ảnh"
+                                v-model="user.imgUrl"
+                                required
+                              ></v-text-field>
+                            </v-col>
 
-                      <v-col cols="12" md="12" class="pb-0 pt-1">
-                        <v-text-field
-                          label="Địa Chỉ"
-                          v-model="user.address"
-                          required
-                        ></v-text-field>
-                      </v-col>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Địa Chỉ"
+                                v-model="user.address"
+                                required
+                              ></v-text-field>
+                            </v-col>
 
-                      <v-col cols="12" md="12">
-                        <v-select
-                          :items="this.listRole"
-                          label="Chức Vụ"
-                          v-model="user.role"
-                          required
-                        ></v-select>
-                      </v-col>
+                            <v-col cols="12" md="12">
+                              <v-select
+                                :items="this.listRole"
+                                label="Chức Vụ"
+                                v-model="user.role"
+                                required
+                              ></v-select>
+                            </v-col>
 
-                      <v-col cols="12" md="12">
-                        <v-select
-                          :items="this.listDepartment"
-                          label="Phòng Ban"
-                          v-model="user.depart_name"
-                          :menu-props="{ top: true, offsetY: true }"
-                          required
-                        ></v-select>
+                            <v-col cols="12" md="12">
+                              <v-select
+                                :items="this.listDepartment"
+                                label="Phòng Ban"
+                                v-model="user.depart_name"
+                                :menu-props="{ top: true, offsetY: true }"
+                                required
+                              ></v-select>
+                            </v-col>
+                          </v-row>
+                        </v-container>
                       </v-col>
+                      <v-col cols="12" sm="4" class="text-center">
+                        <v-container>
+                          <v-row>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Số Điện Thoại"
+                                v-model="user.phoneNumber"
+                                required
+                                class="pt-1"
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Ngày Sinh"
+                                v-model="user.birthday"
+                                required
+                                type="date"
+                              ></v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-select
+                                :items="['Nam', 'Nữ']"
+                                label="Giới Tính"
+                                v-model="user.gender"
+                                required
+                              ></v-select>
+                            </v-col>
+
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Số CMND/CCCD"
+                                v-model="user.numberCard"
+                                required
+                              ></v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Quốc Tịch"
+                                v-model="user.nationality"
+                                required
+                              ></v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-text-field
+                                label="Dân Tộc"
+                                v-model="user.ethnic"
+                                required
+                              ></v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" md="12">
+                              <v-text-field
+                                label="Tôn Giáo"
+                                v-model="user.religion"
+                                required
+                              ></v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" md="12">
+                              <v-select
+                                :items="['12/12']"
+                                label="Trình Độ Văn Hóa"
+                                required
+                                v-model="user.educationalLevel"
+                              ></v-select>
+                            </v-col>
+                          </v-row>
+                        </v-container>
+                      </v-col>
+                      <v-col cols="12" sm="4" class="text-center">
+                        <v-container>
+                          <v-row>
+                            <v-col cols="12" md="12" class="pb-0 pt-1">
+                              <v-select
+                                class="pt-1"
+                                :items="['Cao Đẳng', 'Đại Học', 'Cao Học']"
+                                label="Trình Độ Học Vấn"
+                                :menu-props="{ top: true, offsetY: true }"
+                                required
+                                v-model="user.academicLevel"
+                              ></v-select>
+                            </v-col>
+                          </v-row>
+                        </v-container>
+                      </v-col>
+                      <!-- <v-col cols="12" sm="4" class="text-center">
+                        <v-container>
+                          <v-row>
+                            <v-col cols="12" md="12" class="pb-0 pt-0">
+                              <v-select
+                                :items="['Cao Đẳng', 'Đại Học', 'Cao Học']"
+                                label="Trình Độ Học Vấn"
+                                :menu-props="{ top: true, offsetY: true }"
+                                required
+                                v-model="user.academicLevel"
+                              ></v-select>
+                            </v-col>
+                          </v-row>
+                        </v-container>
+                      </v-col> -->
                     </v-row>
                   </v-container>
-                  <small>*indicates required field</small>
                 </v-card-text>
-                <v-card-actions>
+                <v-card-actions class="pt-0 pb-4">
                   <v-spacer></v-spacer>
                   <v-btn color="blue darken-1" text @click="dialog = false">
                     Đóng
@@ -134,7 +236,7 @@
               }"
             >
               <template v-slot:[`item.actions`]="{ item }">
-                <v-dialog max-width="1400" persistent>
+                <v-dialog max-width="1600" persistent>
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
                       color="primary"
@@ -145,24 +247,21 @@
                     </v-btn>
                   </template>
                   <template v-slot:default="dialog">
-                    <v-card>
-                      <v-card-text>
+                    <v-card class="pb-3">
+                      <v-card-text class="pb-5">
                         <v-container class="px-0 pt-13 pb-0">
                           <h1 class="px-5 py-0 text-center primary--text">
                             Thông Tin Nhân Viên
                           </h1>
-                          <v-row align="center" justify="center" class="">
-                            <v-col cols="12" sm="4" class="text-center">
+                          <v-row align="center" justify="center" class="pe-5">
+                            <v-col cols="12" sm="3" class="text-center">
                               <v-avatar
                                 class="mb-2"
                                 color="grey darken-1"
-                                size="250"
+                                size="300"
                                 v-if="detailsItem.imgUrl"
                               >
-                                <v-img
-                                  aspect-ratio="30"
-                                  :src="detailsItem.imgUrl"
-                                />
+                                <v-img aspect-ratio="30" :src="detailsItem.imgUrl" />
                               </v-avatar>
                               <v-avatar
                                 class="mb-2"
@@ -177,9 +276,7 @@
                               </v-avatar>
                               <h2
                                 class="black--text mt-2 mb-6"
-                                v-if="
-                                  detailsItem.firstName && detailsItem.lastName
-                                "
+                                v-if="detailsItem.firstName && detailsItem.lastName"
                               >
                                 {{ detailsItem.lastName }}
                                 {{ detailsItem.firstName }}
@@ -194,20 +291,13 @@
                                 :key="index"
                                 class="mt-0 ms-5"
                               >
-                                <v-col
-                                  cols="12"
-                                  sm="2"
-                                  class="text-end px-0 mb-2"
-                                >
+                                <v-col cols="12" sm="2" class="text-end px-0 mb-2">
                                   <v-avatar
                                     class="mb"
                                     color="grey darken-1"
                                     size="30"
                                   >
-                                    <v-img
-                                      aspect-ratio="30"
-                                      :src="link.imgUrl"
-                                    />
+                                    <v-img aspect-ratio="30" :src="link.imgUrl" />
                                   </v-avatar>
                                 </v-col>
                                 <v-col cols="12" sm="10" class="text-start">
@@ -217,25 +307,34 @@
                                 </v-col>
                               </v-row>
                             </v-col>
-                            <v-col cols="12" sm="4" class="text-center">
+                            <v-col cols="12" sm="3" class="text-center">
                               <v-form>
                                 <v-container>
                                   <v-row>
                                     <v-col cols="12" md="12" class="pb-0 pt-1">
                                       <v-text-field
-                                        :counter="30"
-                                        label="Họ"
-                                        :value="detailsItem.lastName"
+                                        label="ID"
+                                        :value="detailsItem.id"
                                         required
-                                        class="pt-1"
                                         readonly
                                       ></v-text-field>
                                     </v-col>
                                     <v-col cols="12" md="12" class="pb-0 pt-1">
                                       <v-text-field
-                                        :counter="30"
-                                        label="Tên"
-                                        :value="detailsItem.firstName"
+                                        label="Mã Nhân Viên"
+                                        :value="detailsItem.emp_ID"
+                                        required
+                                        readonly
+                                      ></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-text-field
+                                        label="Tên Nhân Viên"
+                                        :value="
+                                          detailsItem.lastName +
+                                            ' ' +
+                                            detailsItem.firstName
+                                        "
                                         required
                                         readonly
                                       ></v-text-field>
@@ -262,7 +361,7 @@
                                     <v-col cols="12" md="12" class="pb-0 pt-1">
                                       <v-text-field
                                         label="Số điện thoại"
-                                        value="0346996951"
+                                        :value="detailsItem.phoneNumber"
                                         required
                                         readonly
                                       ></v-text-field>
@@ -285,7 +384,14 @@
                                         readonly
                                       ></v-text-field>
                                     </v-col>
-
+                                  </v-row>
+                                </v-container>
+                              </v-form>
+                            </v-col>
+                            <v-col cols="12" sm="3" class="text-center">
+                              <v-form>
+                                <v-container>
+                                  <v-row>
                                     <v-col cols="12" md="12" class="pb-0 pt-1">
                                       <v-text-field
                                         label="Phòng Ban"
@@ -294,11 +400,78 @@
                                         readonly
                                       ></v-text-field>
                                     </v-col>
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-text-field
+                                        label="Ngày Sinh"
+                                        :value="detailsItem.birthday"
+                                        required
+                                        readonly
+                                      ></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-select
+                                        :items="['Nam', 'Nữ']"
+                                        label="Giới Tính"
+                                        :value="detailsItem.gender"
+                                        required
+                                        readonly
+                                      ></v-select>
+                                    </v-col>
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-text-field
+                                        label="Số CMND/CCCD"
+                                        :value="detailsItem.numberCard"
+                                        required
+                                        readonly
+                                      ></v-text-field>
+                                    </v-col>
+
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-text-field
+                                        label="Quốc Tịch"
+                                        :value="detailsItem.nationality"
+                                        required
+                                        readonly
+                                      ></v-text-field>
+                                    </v-col>
+
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-text-field
+                                        label="Dân Tộc"
+                                        :value="detailsItem.ethnic"
+                                        required
+                                        readonly
+                                      ></v-text-field>
+                                    </v-col>
+
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-select
+                                        :items="['12/12']"
+                                        label="Trình Độ Văn Hóa"
+                                        :value="detailsItem.educationalLevel"
+                                        required
+                                        readonly
+                                      ></v-select>
+                                    </v-col>
+
+                                    <v-col cols="12" md="12" class="pb-0 pt-1">
+                                      <v-select
+                                        :items="['Cao Đẳng', 'Đại Học', 'Cao Học']"
+                                        label="Trình Độ Học Vấn"
+                                        :value="detailsItem.academicLevel"
+                                        :menu-props="{
+                                          top: true,
+                                          offsetY: true,
+                                        }"
+                                        required
+                                        readonly
+                                      ></v-select>
+                                    </v-col>
                                   </v-row>
                                 </v-container>
                               </v-form>
                             </v-col>
-                            <v-col cols="12" sm="4" class="text-center">
+                            <v-col cols="12" sm="3" class="text-center">
                               <v-card class="mx-auto" max-width="400">
                                 <v-img
                                   class="white--text align-end"
@@ -342,7 +515,9 @@
                         </v-container>
                       </v-card-text>
                       <v-card-actions class="justify-end">
-                        <v-btn text @click="dialog.value = false">Close</v-btn>
+                        <v-btn text @click="dialog.value = false" color="primary"
+                          >Đóng</v-btn
+                        >
                       </v-card-actions>
                     </v-card>
                   </template>
@@ -397,10 +572,18 @@
       title="Thông báo!"
       description="Thêm dữ liệu thành công!!"
     ></popup>
+    <popup
+      :show="showDialogDuplicateEmail"
+      :cancel="cancel"
+      :confirm="confirm"
+      text="Oke ^^"
+      title="Thông báo!"
+      description="Email này đã tồn tại!! Vui lòng chọn email khác"
+    ></popup>
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 import Popup from "../components/Popup.vue";
 export default {
   components: { Popup },
@@ -457,22 +640,12 @@ export default {
       detailsId: 0,
       dialog: false,
       detailsItem: {},
-      user: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        role: "",
-        position_id: "",
-        depart_id: "",
-        depart_name: "",
-        address: "",
-        imgUrl: "",
-      },
+      user: {},
       showDialogDelete: false,
       showDialogDeleteSuccess: false,
       showDialogCreateRequired: false,
       showDialogCreateSuccess: false,
+      showDialogDuplicateEmail: false,
       linkUser: [
         {
           imgUrl:
@@ -498,57 +671,96 @@ export default {
     };
   },
   methods: {
-    async DetailsUser(item) {
+    // async DetailsUser(item) {
+    //   this.detailsId = item.id;
+    //   // const res = await axios.get(
+    //   //   `${process.env.VUE_APP_SERVER_URL}/employee/${this.detailsId}`
+    //   // );
+    //   const resData = JSON.parse(localStorage.getItem("employee"));
+    //   const details = [...resData].find(el => el)
+    //   this.detailsItem = res.data;
+    // },
+    DetailsUser(item) {
       this.detailsId = item.id;
-      const res = await axios.get(
-        `${process.env.VUE_APP_SERVER_URL}/employee/${this.detailsId}`
-      );
-      this.detailsItem = res.data;
+      const resData = JSON.parse(localStorage.getItem("employee"));
+      const details = [...resData].find((el) => el.id === this.detailsId);
+      this.detailsItem = details;
     },
     handleRow(item) {
-      this.deleteId = item.id;
+      this.deleteId = item.email;
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/employee/${this.deleteId}`);
+      // await axios.delete(
+      //   `${process.env.VUE_APP_SERVER_URL}/employee/${this.deleteId}`
+      // );
+      const resDataUser = JSON.parse(localStorage.getItem("user"));
+      const resDataEmp = JSON.parse(localStorage.getItem("employee"));
+      const indexDel = resDataUser.findIndex((el) => el.email === this.deleteId);
+      const index = resDataEmp.findIndex((el) => el.email === this.deleteId);
+      resDataEmp.splice(index, 1);
+      localStorage.setItem("employee", JSON.stringify(resDataEmp));
+      resDataUser.splice(indexDel, 1);
+      this.employee = resDataEmp;
+      localStorage.setItem("user", JSON.stringify(resDataUser));
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
-      setTimeout(() => window.location.reload(), 1200);
+    },
+    userExists(email) {
+      const resUser = JSON.parse(localStorage.getItem("employee"));
+      return resUser.some(function(el) {
+        return el.email === email;
+      });
     },
     async createUser() {
-      if (
-        this.user.firstName == "" ||
-        this.user.lastName == "" ||
-        this.user.email == "" ||
-        this.user.password == "" ||
-        this.user.depart_name == "" ||
-        this.user.role == ""
-      ) {
+      let result = Object.values(this.user);
+      if (result.length < 17) {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/user`, {
-          email: this.user.email,
-          password: this.user.password,
-          role: this.user.role,
-        });
-        let res2 = await axios.post(`${process.env.VUE_APP_SERVER_URL}/employee`, {
-          firstName: this.user.firstName,
-          lastName: this.user.lastName,
-          email: this.user.email,
-          password: this.user.password,
-          role: this.user.role,
-          position_id: this.user.position_id,
-          depart_id: this.user.depart_id,
-          depart_name: this.user.depart_name,
-          address: this.user.address,
-          imgUrl: this.user.imgUrl,
-        });
-        console.log(res);
-        console.log(res2);
-        this.dialog = false;
-        this.showDialogCreateSuccess = true;
-        setTimeout(() => window.location.reload(), 1500);
+        if (this.userExists(this.user.email) == true) {
+          this.showDialogDuplicateEmail = true;
+          this.dialog = false;
+        } else {
+          const resUser = JSON.parse(localStorage.getItem("user"));
+          const detailsIdUser = resUser[resUser.length - 1];
+          resUser.push({
+            id: detailsIdUser.id + 1,
+            email: this.user.email,
+            password: this.user.password,
+            role: this.user.role,
+          });
+          localStorage.setItem("user", JSON.stringify(resUser));
+          const resEm = JSON.parse(localStorage.getItem("employee"));
+          const detailsIdEm = resEm[resEm.length - 1];
+          resEm.push({
+            id: detailsIdEm.id + 1,
+            emp_ID: `NV${detailsIdEm.id + 1}`,
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            email: this.user.email,
+            password: this.user.password,
+            role: this.user.role,
+            position_id: this.user.position_id,
+            depart_id: this.user.depart_id,
+            depart_name: this.user.depart_name,
+            address: this.user.address,
+            imgUrl: this.user.imgUrl,
+            phoneNumber: this.user.phoneNumber,
+            birthday: this.user.birthday,
+            gender: this.user.gender,
+            numberCard: this.user.numberCard,
+            nationality: this.user.nationality,
+            ethnic: this.user.ethnic,
+            religion: this.user.religion,
+            educationalLevel: this.user.educationalLevel,
+            academicLevel: this.user.academicLevel,
+          });
+          this.employee = resEm;
+          localStorage.setItem("employee", JSON.stringify(resEm));
+          this.dialog = false;
+          this.showDialogCreateSuccess = true;
+        }
       }
     },
     cancel() {
@@ -561,19 +773,22 @@ export default {
       this.showDialogDeleteSuccess = false;
       this.showDialogCreateRequired = false;
       this.showDialogCreateSuccess = false;
+      this.showDialogDuplicateEmail = false;
     },
   },
   async mounted() {
-    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee`);
-    this.employee = res.data;
-    console.log(this.employee);
-    const resPo = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
-    let result = resPo.data.map((a) => a.role);
+    // const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee`);
+    const res = JSON.parse(localStorage.getItem("employee"));
+    this.employee = res;
+
+    // const resPo = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
+    const resPo = JSON.parse(localStorage.getItem("position"));
+    let result = resPo.map((a) => a.role);
     this.listRole = result;
-    const resDe = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
-    let resultDe = resDe.data.map((a) => a.depart_name);
+    // const resDe = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
+    const resDe = JSON.parse(localStorage.getItem("departments"));
+    let resultDe = resDe.map((a) => a.depart_name);
     this.listDepartment = resultDe;
-    console.log(this.roleName);
   },
 };
 </script>

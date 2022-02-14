@@ -2,19 +2,21 @@
   "employee": [
     {
       "id": 1,
+      "emp_ID": "NV01",
       "firstName": "Vi",
       "lastName": "Nguyễn Thị Hà",
       "email": "havi@gmail.com",
       "password": "12345678",
       "imgUrl": "https://anhdep123.com/wp-content/uploads/2021/02/anh-gai-mang.jpg",
-      "role": "Nhân Viên",
-      "depart_id": "CSVC9",
-      "depart_name": "Phòng Cơ Sở Vật Chất",
-      "position_id": "epl",
+      "role": "Giám Đốc Công Ty",
+      "depart_id": "MNG11",
+      "depart_name": "Phòng Giám Đốc",
+      "position_id": "mng",
       "address": "Phường Mỹ An, Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng"
     },
     {
       "id": 2,
+      "emp_ID": "NV02",
       "firstName": "Lương",
       "lastName": "Trần Hữu",
       "email": "luongtran@gmail.com",
@@ -28,6 +30,7 @@
     },
     {
       "id": 3,
+      "emp_ID": "NV03",
       "firstName": "Dũng",
       "lastName": "Nguyễn Sỹ",
       "email": "sydung@gmail.com",
@@ -41,6 +44,7 @@
     },
     {
       "id": 4,
+      "emp_ID": "NV04",
       "firstName": "Dung",
       "lastName": "Dương Thị Thùy",
       "email": "thuydung@gmail.com",
@@ -54,11 +58,12 @@
     },
     {
       "id": 5,
+      "emp_ID": "NV05",
       "firstName": "Hiếu",
       "lastName": "Võ Trung",
       "email": "hieuvo@gmail.com",
       "password": "12345678",
-      "imgUrl": "https://scontent.fdad3-3.fna.fbcdn.net/v/t39.30808-6/260544044_1234598287031408_1119554743030111798_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=8DH2LRiwahEAX9_GteH&_nc_ht=scontent.fdad3-3.fna&oh=00_AT8NKDUvDezzphaFqsYqbuBiBcwDUz-md_8TVz5e139g6Q&oe=61F23160",
+      "imgUrl": "https://scontent.fdad3-3.fna.fbcdn.net/v/t39.30808-6/260544044_1234598287031408_1119554743030111798_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=j8IY-YrJHukAX9ke38M&_nc_ht=scontent.fdad3-3.fna&oh=00_AT_bfs61a4ntD1ndpsEMhxdKoytN3UcTnpn3Qly4xYKTDg&oe=6207F220",
       "role": "Nhân Viên",
       "depart_id": "CSVC9",
       "depart_name": "Phòng Cơ Sở Vật Chất",
@@ -67,6 +72,7 @@
     },
     {
       "id": 6,
+      "emp_ID": "NV06",
       "firstName": "Trang",
       "lastName": "Võ Thi Thuy",
       "email": "k2@gmail.com",
@@ -79,6 +85,7 @@
       "address": "Phường Mỹ An, Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng"
     },
     {
+      "emp_ID": "NV07",
       "firstName": "Chi",
       "lastName": "Nguyễn Mai",
       "email": "maichi08@gmail.com",
@@ -92,9 +99,10 @@
       "id": 7
     },
     {
+      "emp_ID": "NV08",
       "firstName": "Vi",
       "lastName": "Nguyễn Lê",
-      "email": "levi123",
+      "email": "levi123@gmail.com",
       "password": "1234",
       "imgUrl": "",
       "role": "",
@@ -105,6 +113,7 @@
       "id": 8
     },
     {
+      "emp_ID": "NV09",
       "firstName": "Tuấn",
       "lastName": "Hồ Lê Anh",
       "email": "anhtuan@gmail.com",
@@ -118,7 +127,8 @@
       "id": 9
     },
     {
-      "firstName": "Yên",
+      "emp_ID": "NV10",
+      "firstName": "Yến",
       "lastName": "Phạm Hoàng",
       "email": "hoangyen@gmail.com",
       "password": "12345678",
@@ -131,32 +141,7 @@
       "id": 10
     },
     {
-      "firstName": "Đức",
-      "lastName": "Nguyễn Hữu",
-      "email": "huuduc@gmail.com",
-      "password": "12345678",
-      "imgUrl": "",
-      "role": "Nhân Viên",
-      "depart_id": "CSVC9",
-      "depart_name": "Phòng Cơ Sở Vật Chất",
-      "address": "Phường Mỹ An, Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng",
-      "position_id": "epl",
-      "id": 11
-    },
-    {
-      "firstName": "Sơn",
-      "lastName": "Trịnh Duy",
-      "email": "duyson@gmail.com",
-      "password": "12345678",
-      "imgUrl": "",
-      "role": "Nhân Viên",
-      "depart_id": "CSVC9",
-      "depart_name": "Phòng Cơ Sở Vật Chất",
-      "address": "Phường Mỹ An, Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng",
-      "position_id": "epl",
-      "id": 13
-    },
-    {
+      "emp_ID": "NV14",
       "firstName": "Huy",
       "lastName": "Thái Văn",
       "email": "vanhuy@gmail.com",
@@ -170,12 +155,13 @@
       "id": 14
     },
     {
+      "emp_ID": "NV15",
       "firstName": "Thành",
       "lastName": "Nguyễn Văn",
       "email": "vanthanh@gmail.com",
       "password": "12345678",
       "imgUrl": "",
-      "role": "Nhân Viên",
+      "role": "Trưởng Phòng",
       "depart_id": "CSVC9",
       "depart_name": "Phòng Cơ Sở Vật Chất",
       "address": "Phường Mỹ An, Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng",
@@ -183,6 +169,7 @@
       "id": 15
     },
     {
+      "emp_ID": "NV16",
       "firstName": "Khải",
       "lastName": "Mai Văn",
       "email": "vankhai@gmail.com",
@@ -196,6 +183,7 @@
       "id": 16
     },
     {
+      "emp_ID": "NV17",
       "firstName": "Phong",
       "lastName": "Đinh Hồng",
       "email": "hongphong@gmail.com",
@@ -209,6 +197,7 @@
       "id": 17
     },
     {
+      "emp_ID": "NV18",
       "firstName": "Việt",
       "lastName": "Nguyễn Duy",
       "email": "duyviet@gmail.com",
@@ -222,6 +211,7 @@
       "id": 18
     },
     {
+      "emp_ID": "NV19",
       "firstName": "Đạt",
       "lastName": "Nguyễn Ngọc Tiến",
       "email": "tiendat@gmail.com",
@@ -235,6 +225,7 @@
       "id": 19
     },
     {
+      "emp_ID": "NV20",
       "firstName": "Diệu",
       "lastName": "Trương Quang",
       "email": "quangdieu@gmail.com",
@@ -248,6 +239,7 @@
       "id": 20
     },
     {
+      "emp_ID": "NV21",
       "firstName": "Tiến",
       "lastName": "Nguyễn Tân",
       "email": "tiennguyen@gmail.com",
@@ -261,6 +253,7 @@
       "id": 21
     },
     {
+      "emp_ID": "NV22",
       "firstName": "Trân",
       "lastName": "Võ Ngọc",
       "email": "ngoctran@gmail.com",
@@ -274,6 +267,7 @@
       "id": 22
     },
     {
+      "emp_ID": "NV23",
       "firstName": "",
       "lastName": "",
       "email": "test1@gmail.com",
@@ -287,6 +281,7 @@
       "id": 23
     },
     {
+      "emp_ID": "NV24",
       "firstName": "Anh",
       "lastName": "Quách Hoàng",
       "email": "hoanganh@gmail.com",
@@ -300,12 +295,13 @@
       "id": 24
     },
     {
+      "emp_ID": "NV25",
       "firstName": "",
       "lastName": "",
       "email": "vanvu@gmail.com",
       "password": "12345678",
       "imgUrl": "",
-      "role": "Giám đốc CSVC",
+      "role": "Giám Đốc CSVC",
       "position_id": "",
       "depart_id": "CSVC9",
       "depart_name": "Phòng Cơ Sở Vật Chất",
@@ -313,6 +309,7 @@
       "id": 25
     },
     {
+      "emp_ID": "NV26",
       "firstName": "",
       "lastName": "",
       "email": "test123",
@@ -326,6 +323,7 @@
       "id": 26
     },
     {
+      "emp_ID": "NV28",
       "firstName": "",
       "lastName": "",
       "email": "qwe123",
@@ -339,24 +337,12 @@
       "id": 28
     },
     {
-      "firstName": "Thắng",
-      "lastName": "Nguyễn Vũ Quốc",
-      "email": "quocthang@gmail.com",
-      "password": "12345678",
-      "imgUrl": "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/p1080x2048/57387322_417532595472990_1216186213963137024_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_ohc=41hOIkVl-6wAX9ISG8-&_nc_ht=scontent.fdad3-5.fna&oh=03_AVKso6pNoAej9o2C-T7fxsbxdIW874cpbQ_hp1MdwCrUtA&oe=62101772",
-      "role": "Nhân Viên",
-      "position_id": "epl",
-      "depart_id": "CSVC9",
-      "depart_name": "Phòng Cơ Sở Vật Chất",
-      "address": "Phường Mỹ An, Quận Ngũ Hành Sơn, Thành Phố Đà Nẵng",
-      "id": 29
-    },
-    {
+      "emp_ID": "NV31",
       "firstName": "Ngân",
       "lastName": "Phan Nguyễn Thái ",
       "email": "thaingan@gmail.com",
       "password": "12345678",
-      "role": "Trưởng Phòng ",
+      "role": "Trưởng Phòng",
       "position_id": "",
       "depart_id": "",
       "depart_name": "Phòng Marketing",
@@ -365,6 +351,7 @@
       "id": 31
     },
     {
+      "emp_ID": "NV32",
       "firstName": "Huyền",
       "lastName": "Vũ Thị Khánh",
       "email": "vukhanhhuyen@gmail.com",
@@ -378,6 +365,7 @@
       "id": 32
     },
     {
+      "emp_ID": "NV33",
       "firstName": "Huyền",
       "lastName": "Lê Thị Khánh",
       "email": "lekhanhhuyen@gmail.com",
@@ -389,6 +377,20 @@
       "address": "Quận Liên Chiểu, Thành Phố Đà Nẵng",
       "imgUrl": "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/129676557_3216999978400227_610038183782765252_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=kK-p8P-HSwEAX9cja-G&_nc_ht=scontent.fdad3-4.fna&oh=00_AT8tczK6T4CHjcRuxl8FROddfMrIJF1Jj8nLbC8fdroBUg&oe=621290D8",
       "id": 33
+    },
+    {
+      "emp_ID": "NV34",
+      "firstName": "Giang",
+      "lastName": "Dương Thu",
+      "email": "thugiang@gmail.com",
+      "password": "12345678",
+      "role": "Nhân Viên",
+      "position_id": "",
+      "depart_id": "",
+      "depart_name": "Phòng CSKH",
+      "address": "Quận Liên Chiểu, Thành Phố Đà Nẵng",
+      "imgUrl": "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/79948992_149010263063466_7633842204389146624_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_ohc=URvt1oQhdGoAX-g2yyi&_nc_ht=scontent.fdad3-4.fna&oh=00_AT_CohWMQ8zMiW2mzaqnFvtdeXvhv3wo_M6AXbV69dFI6Q&oe=621752EF",
+      "id": 34
     }
   ],
   "departments": [
@@ -396,67 +398,85 @@
       "id": 1,
       "depart_id": "MTK2",
       "depart_name": "Phòng Marketing",
-      "depart_address": "Phòng 101"
+      "depart_address": "Phòng 101",
+      "depart_image": "https://cc.1cdn.vn/2018/12/08/media-cungcau-vn_guong1-1740.jpg"
     },
     {
       "id": 2,
       "depart_id": "SL2",
       "depart_name": "Phòng Sales",
-      "depart_address": "Phòng 102"
+      "depart_address": "Phòng 102",
+      "depart_image": "https://trituevietnam.com.vn/wp-content/uploads/2020/04/phong-kinh-doanh-.jpg"
     },
     {
       "id": 3,
       "depart_id": "HR3",
       "depart_name": "Phòng Nhân Sự",
-      "depart_address": "Phòng 103"
+      "depart_address": "Phòng 103",
+      "depart_image": "https://tuyensinhdhcd.vn/wp-content/uploads/2020/11/cong-viec-nhan-su-gom-nhung-gi-1.jpg"
     },
     {
       "id": 4,
       "depart_id": "KT4",
       "depart_name": "Phòng Kế Toán",
-      "depart_address": "Phòng 104"
+      "depart_address": "Phòng 104",
+      "depart_image": "https://ketoananpha.vn/uploads/images/post/1-02.jpg"
     },
     {
       "id": 5,
       "depart_id": "KT5",
       "depart_name": "Phòng Kiểm Toán",
-      "depart_address": "Phòng 105"
+      "depart_address": "Phòng 105",
+      "depart_image": "https://toplist.vn/images/800px/cong-ty-tnhh-dai-ly-thue-tu-van-vinatax-495772.jpg"
     },
     {
       "id": 6,
       "depart_id": "KD6",
       "depart_name": "Phòng Kinh Doanh",
-      "depart_address": "Phòng 201"
+      "depart_address": "Phòng 201",
+      "depart_image": "https://cdn.vietnambiz.vn/171464876016439296/2020/4/24/0-15877038145611885671211.jpg"
     },
     {
       "id": 7,
       "depart_id": "CNTT7",
       "depart_name": "Phòng Công Nghệ Thông Tin",
-      "depart_address": "Phòng 202"
+      "depart_address": "Phòng 202",
+      "depart_image": "https://ict-imgs.vgcloud.vn/2021/04/26/18/co-gi-trong-tru-so-moi-dep-nhu-mo-cua-tap-doan-cong-nghe-fpt-4.jpg"
     },
     {
       "id": 8,
       "depart_id": "CSKH8",
       "depart_name": "Phòng CSKH",
-      "depart_address": "Phòng 203"
+      "depart_address": "Phòng 203",
+      "depart_image": "https://fpttelecom.info.vn/wp-content/uploads/2016/05/bo-phan-cham-soc-khach-hang-fpt-telecom.jpg"
     },
     {
       "id": 9,
       "depart_id": "CSVC9",
       "depart_name": "Phòng Cơ Sở Vật Chất",
-      "depart_address": "Phòng 204"
+      "depart_address": "Phòng 204",
+      "depart_image": "https://oxford.edu.vn/UploadFinder/images/van%20phong%202-compressed.jpg"
     },
     {
       "depart_id": "QHQT10",
       "depart_name": "Phòng Quan Hệ Quốc Tế",
       "depart_address": "Phòng 205",
-      "id": 10
+      "id": 10,
+      "depart_image": "https://thietkevanphongmienbac.vn/Uploaded_products/img_any/thiet-ke-noi-that-phong-giam-doc-sang-trong-mb1.jpg"
     },
     {
       "depart_id": "NQ11",
       "depart_name": "Phòng Ngân Qũy ",
       "depart_address": "Phòng 301",
-      "id": 11
+      "id": 11,
+      "depart_image": "https://file1.dangcongsan.vn/data/0/images/2021/08/02/minhphuong/copy-of-img-0133.jpg?dpi=150&quality=100&w=780"
+    },
+    {
+      "depart_id": " MNG11",
+      "depart_name": "Phòng Giám Đốc",
+      "depart_address": "Phòng 401",
+      "depart_image": "https://donggia.vn/wp-content/uploads/2020/10/thiet-ke-noi-that-phong-chu-tich-giam-doc-9.jpg",
+      "id": 12
     }
   ],
   "facilities": [
@@ -466,9 +486,10 @@
       "title": "Laptop",
       "price": "1.500.000đ",
       "qty": 10,
-      "image": "xxx",
+      "image": "https://cdn.tgdd.vn/Files/2019/08/22/1190454/laptop-vien-man-hinh-mong-co-nhung-uu-va-nhuoc-diem-gi--4.jpg",
       "innitiated_date": "12/01/2020",
-      "email": "luongtran@gmail.com"
+      "emp_ID": "NV02",
+      "fullName": "Trần Hữu Lương"
     },
     {
       "id": 2,
@@ -476,9 +497,10 @@
       "title": "Máy In",
       "price": "700.000đ",
       "qty": 20,
-      "image": "xxx",
+      "image": "https://smartid.vn/templates/pictures/content/SmartID-may-in-anh-ky-thuat-so-600px(1).jpg",
       "innitiated_date": "12/05/2020",
-      "email": "thuydung@gmail.com"
+      "emp_ID": "NV04",
+      "fullName": "Dương Thị Thùy Dung"
     },
     {
       "id": 3,
@@ -486,9 +508,10 @@
       "title": "Máy Tính Để Bàn",
       "price": "12.500.000đ",
       "qty": 20,
-      "image": "xxx",
+      "image": "https://khadao.vn/uploads/tiny_uploads/tin%20tuc/5%20C%E1%BA%A4U%20H%C3%8CNH%20PC/build-pc-gaming-duoi-1o-tr.jpg",
       "innitiated_date": "12/03/2020",
-      "email": "thuydung@gmail.com"
+      "emp_ID": "NV04",
+      "fullName": "Dương Thị Thùy Dung"
     },
     {
       "id": 4,
@@ -496,9 +519,10 @@
       "title": "Máy chiếu panasonic",
       "price": "9.500.000đ",
       "qty": 20,
-      "image": "xxx",
+      "image": "https://itbuy.vn/media/product/1271_pt_vx430_1.jpg",
       "innitiated_date": "20/01/2020",
-      "email": "hieuvo@gmail.com"
+      "emp_ID": "NV05",
+      "fullName": "Võ Trung Hiếu"
     },
     {
       "id": 5,
@@ -506,9 +530,10 @@
       "title": "Máy Quạt",
       "price": "5.000.000đ",
       "qty": 50,
-      "image": "xxx",
+      "image": "https://dienmayhangphu01.files.wordpress.com/2016/01/quat-treo-cong-nghiep-david-ydw-500-tw.jpg?w=640",
       "innitiated_date": "12/01/2021",
-      "email": "luongtran@gmail.com"
+      "emp_ID": "NV02",
+      "fullName": "Trần Hữu Lương"
     },
     {
       "id": 6,
@@ -516,9 +541,10 @@
       "title": "Máy Chiếu BeenQ",
       "price": "6.000.000đ",
       "qty": 50,
-      "image": "xxx",
+      "image": "https://meta.vn/Data/image/2020/06/11/may-chieu-ben-q-ms-506-1.jpg",
       "innitiated_date": "12/12/2021",
-      "email": "luongtran@gmail.com"
+      "emp_ID": "NV02",
+      "fullName": "Trần Hữu Lương"
     },
     {
       "id": 7,
@@ -526,9 +552,10 @@
       "title": "Máy Chiếu Mini EPSON",
       "price": "1.900.000đ",
       "qty": 50,
-      "image": "xxx",
+      "image": "https://saomaisg.vn/uploads/products/5b18f03b16df8.jpg",
       "innitiated_date": "21/08/2020",
-      "email": "luongtran@gmail.com"
+      "emp_ID": "NV02",
+      "fullName": "Trần Hữu Lương"
     },
     {
       "id": 8,
@@ -536,9 +563,10 @@
       "title": "Máy Chiếu Xiaomi",
       "price": "10.500.000đ",
       "qty": 50,
-      "image": "xxx",
+      "image": "http://img.websosanh.vn/v2/users/root_product/images/may-chieu-laser-xiaomi/mdpwyqxgyrkvs.jpg",
       "innitiated_date": "20/01/2020",
-      "email": "hieuvo@gmail.com"
+      "emp_ID": "NV05",
+      "fullName": "Võ Trung Hiếu"
     },
     {
       "id": 9,
@@ -546,9 +574,10 @@
       "title": "Bàn Gỗ",
       "price": "2.000.000đ",
       "qty": 50,
-      "image": "xxx",
+      "image": "https://bizweb.dktcdn.net/thumb/grande/100/245/838/products/64-p-1358910350911.jpg?v=1503051646970",
       "innitiated_date": "30/08/2020",
-      "email": "hieuvo@gmail.com"
+      "emp_ID": "NV05",
+      "fullName": "Võ Trung Hiếu"
     },
     {
       "id": 10,
@@ -556,9 +585,10 @@
       "title": "Ghế",
       "price": "700.000đ",
       "qty": 50,
-      "image": "xxx",
+      "image": "https://banghehatram.com/wp-content/uploads/2017/04/gh%E1%BA%BF-c08c-cover.jpg",
       "innitiated_date": "22/9/2020",
-      "email": "hieuvo@gmail.com"
+      "emp_ID": "NV05",
+      "fullName": "Võ Trung Hiếu"
     },
     {
       "facilities_id": "Clothing11",
@@ -567,8 +597,53 @@
       "qty": "100",
       "image": "https://maydongphucglu.com/wp-content/uploads/2018/03/AO-THUN-MIGROUP.jpg",
       "innitiated_date": "30/1/2022",
-      "email": "hieuvo@gmail.com",
+      "emp_ID": "NV05",
+      "fullName": "Võ Trung Hiếu",
       "id": 11
+    },
+    {
+      "facilities_id": "Camera12",
+      "title": "Camera An Ninh",
+      "price": "3.000.000đ",
+      "qty": "20",
+      "image": "https://channel.mediacdn.vn/2020/8/19/photo-1-1597823118182621480091.jpg",
+      "innitiated_date": "30/1/2022",
+      "emp_ID": "NV34",
+      "fullName": "Dương Thu Giang",
+      "id": 12
+    },
+    {
+      "facilities_id": "Phone22",
+      "title": "Điện Thoại Di Động",
+      "price": "15000000",
+      "qty": "100",
+      "image": "https://storage.googleapis.com/cdn.nhanh.vn/store2/81120/ps/20211024/xsm.jpg",
+      "innitiated_date": "27/01/2022",
+      "emp_ID": "NV02",
+      "fullName": "Trần Hữu Lương",
+      "id": 14
+    },
+    {
+      "facilities_id": "Girl14",
+      "title": "Gái Xinh",
+      "price": "40000000",
+      "qty": "10",
+      "image": "https://pdp.edu.vn/wp-content/uploads/2021/06/hinh-anh-gai-xinh-de-thuong-nhat-1.jpg",
+      "innitiated_date": "27/01/2022",
+      "emp_ID": "NV03",
+      "fullName": "Nguyễn Sỹ Dũng",
+      "id": 15
+    },
+    {
+      "facilities_id": "TV15",
+      "title": "Tivi Thông Minh",
+      "price": "25.000.000đ",
+      "qty": "145",
+      "image": "https://image-us.24h.com.vn/upload/4-2021/images/2021-12-29/dau-la-chiec-Smart-TV-xin-so-nhat-the-gioi-samsung-qled-1640754003-841-width660height366.jpg",
+      "innitiated_date": "2022-01-14",
+      "emp_ID": "NV03",
+      "fullName": "Nguyễn Sỹ Dũng",
+      "id": 16
     }
   ],
   "position": [
@@ -606,108 +681,162 @@
       "position_id": "test",
       "role": "Chức Vụ Test",
       "id": 8
+    },
+    {
+      "position_id": "serc",
+      "role": "Bảo Vệ",
+      "id": 9
+    },
+    {
+      "position_id": "mng",
+      "role": "Giám Đốc Công Ty",
+      "id": 10
     }
   ],
   "payment": [
     {
       "id": 1,
-      "Payment_ID": "01",
-      "email": "tranluong@gmail.com",
-      "firstName": "Lương",
-      "amount": 12000000,
-      "position_id": "epl",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "payment_ID": "SA01",
+      "emp_ID": "NV02",
+      "email": "luongtran@gmail.com",
+      "fullName": "Trần Hữu Lương",
+      "amount": 12500000,
+      "allowance": 700000,
+      "amount_total": 13200000,
+      "role": "Nhân Viên",
+      "description": "Lương tháng 2"
     },
     {
       "id": 2,
-      "Payment_ID": "02",
+      "payment_ID": "SA02",
+      "emp_ID": "NV03",
       "email": "sydung@gmail.com",
-      "firstName": "Dũng",
-      "amount": 12000000,
-      "position_id": "epl",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "fullName": "Nguyễn Sỹ Dũng",
+      "amount": 15000000,
+      "allowance": 700000,
+      "amount_total": 15700000,
+      "role": "Admin",
+      "description": "Lương tháng 2"
     },
     {
       "id": 3,
-      "Payment_ID": "03",
+      "payment_ID": "SA03",
+      "emp_ID": "NV04",
       "email": "thuydung@gmail.com",
-      "firstName": "Dung",
-      "amount": 12000000,
-      "position_id": "epl",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "fullName": "Dương Thị Thùy Dung",
+      "amount": 13700000,
+      "allowance": 700,
+      "amount_total": 14400000,
+      "role": "Nhân Viên",
+      "description": "Lương tháng 2"
     },
     {
       "id": 4,
-      "Payment_ID": "04",
+      "payment_ID": "SA04",
+      "emp_ID": "NV05",
       "email": "hieuvo@gmail.com",
-      "firstName": "Hiếu",
-      "amount": 12000000,
-      "position_id": "epl",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "fullName": "Võ Trung Hiếu",
+      "amount": 19000000,
+      "allowance": 700000,
+      "amount_total": 19700000,
+      "role": "Nhân Viên",
+      "description": "Lương tháng 2"
     },
     {
       "id": 5,
-      "Payment_ID": "05",
-      "email": "cason@gmail.com",
-      "firstName": "cason",
-      "amount": 17000000,
-      "position_id": "depart",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "payment_ID": "SA05",
+      "emp_ID": "NV15",
+      "email": "vanthanh@gmail.com",
+      "fullName": "Nguyễn Văn Thành",
+      "amount": 25000000,
+      "allowance": 700000,
+      "amount_total": 25700000,
+      "role": "Trưởng Phòng",
+      "description": "Lương tháng 2"
     },
     {
       "id": 6,
-      "Payment_ID": "06",
-      "email": "k2@gmail.com",
-      "firstName": "Tuấn",
+      "payment_ID": "SA06",
+      "emp_ID": "NV16",
+      "email": "vankhai@gmail.com",
+      "fullName": "Mai Văn Khải",
       "amount": 15000000,
-      "position_id": "dir",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "allowance": 700000,
+      "amount_total": 15700000,
+      "role": "Nhân Viên",
+      "description": "Lương tháng 2"
     },
     {
       "id": 7,
-      "Payment_ID": "07",
-      "email": "k3@gmail.com",
-      "firstName": "Hương",
+      "payment_ID": "SA07",
+      "emp_ID": "NV32",
+      "email": "vukhanhhuyen@gmail.com",
+      "fullName": "Vũ Thị Khánh Huyền",
       "amount": 17000000,
-      "position_id": "depart",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "allowance": 700000,
+      "amount_total": 17700000,
+      "role": "Trưởng Phòng",
+      "description": "Lương tháng 2"
     },
     {
       "id": 8,
-      "Payment_ID": "08",
-      "email": "k4@gmail.com",
-      "firstName": "Tâm",
-      "amount": 16000000,
-      "position_id": "depart",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "payment_ID": "SA08",
+      "emp_ID": "NV33",
+      "email": "lekhanhhuyen@gmail.com",
+      "fullName": "Lê Thị Khánh Huyền",
+      "amount": 17000000,
+      "allowance": 700000,
+      "amount_total": 17700000,
+      "role": "Trưởng Phòng",
+      "description": "Lương tháng 2"
     },
     {
       "id": 9,
-      "Payment_ID": "09",
-      "email": "k5@gmail.com",
-      "firstName": "Mai",
-      "amount": 12000000,
-      "position_id": "epl",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "payment_ID": "SA09",
+      "emp_ID": "NV24",
+      "email": "hoanganh@gmail.com",
+      "fullName": "Quách Hoàng Anh",
+      "amount": 17000000,
+      "allowance": 700000,
+      "amount_total": 17700000,
+      "role": "Nhân Viên",
+      "description": "Lương tháng 2"
     },
     {
       "id": 10,
-      "Payment_ID": "10",
-      "email": "k6@gmail.com",
-      "firstName": "Nga",
-      "amount": 12000000,
-      "position_id": "epl",
-      "description": "Lương tháng 2",
-      "innitiated_date": "15/2/2021"
+      "payment_ID": "SA10",
+      "emp_ID": "NV20",
+      "email": "quangdieu@gmail.com",
+      "fullName": "Trương Quang Diệu",
+      "amount": 17000000,
+      "allowance": 700000,
+      "amount_total": 17700000,
+      "role": "Nhân Viên",
+      "description": "Lương tháng 2"
+    },
+    {
+      "payment_ID": "SA11",
+      "emp_ID": "NV07",
+      "email": "maichi08@gmail.com",
+      "fullName": "Nguyễn Mai Chi",
+      "amount": "4000000",
+      "allowance": "700000",
+      "amount_total": 4700000,
+      "role": "Trưởng Phòng",
+      "description": "Lương tháng 3",
+      "id": 11
+    },
+    {
+      "payment_ID": "123",
+      "emp_ID": "NV02",
+      "email": "luongtran@gmail.com",
+      "fullName": "Trần Hữu Lương",
+      "amount": "123",
+      "allowance": "123",
+      "amount_total": 246,
+      "role": "Nhân Viên",
+      "description": "123",
+      "id": 12
     }
   ],
   "user": [
@@ -749,7 +878,7 @@
     {
       "email": "havi@gmail.com",
       "password": "12345678",
-      "role": "Nhân Viên",
+      "role": "Giám Đốc Công Ty",
       "id": 7,
       "timeLogin": "24/01/2022 15:32:56"
     },
@@ -782,25 +911,11 @@
       "timeLogin": "24/01/2022 15:32:56"
     },
     {
-      "email": "huuduc@gmail.com",
-      "password": "12345678",
-      "role": "Trưởng Phòng",
-      "id": 12,
-      "timeLogin": "24/01/2022 15:32:56"
-    },
-    {
-      "email": "duyson@gmail.com",
-      "password": "12345678",
-      "role": "Trưởng Phòng",
-      "id": 13,
-      "timeLogin": "24/01/2022 15:32:56"
-    },
-    {
       "email": "vanhuy@gmail.com",
-      "password": "12345678",
+      "password": "1234567890",
       "role": "Trưởng Phòng",
-      "id": 14,
-      "timeLogin": "24/01/2022 15:32:56"
+      "timeLogin": "24/01/2022 15:32:57",
+      "id": 14
     },
     {
       "email": "vanthanh@gmail.com",
@@ -917,6 +1032,12 @@
       "password": "12345678",
       "role": "Nhân Viên",
       "id": 35
+    },
+    {
+      "email": "thugiang@gmail.com",
+      "password": "12345678",
+      "role": "Nhân Viên",
+      "id": 36
     }
   ]
 }

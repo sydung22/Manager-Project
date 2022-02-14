@@ -1,17 +1,52 @@
 [
     {
-        "id": 1,
-        "position_id": "epl",
-        "title": "employee"
+      "id": 1,
+      "position_id": "epl",
+      "role": "Nhân Viên"
     },
     {
-        "id": 2,
-        "position_id": "depart",
-        "title": "department_head"
+      "id": 2,
+      "position_id": "depart",
+      "role": "Trưởng Phòng"
     },
     {
-        "id": 3,
-        "position_id": "dir",
-        "title": "director"
+      "id": 3,
+      "position_id": "dir",
+      "role": "Giám Đốc CSVC"
+    },
+    {
+      "id": 4,
+      "position_id": "ad",
+      "role": "Admin"
+    },
+    {
+      "id": 5,
+      "position_id": "comlead",
+      "role": "Chủ Tịch HĐQT"
+    },
+    {
+      "position_id": "dir_mid",
+      "role": "Phó Giám Đốc CSVC",
+      "id": 6
+    },
+    {
+      "position_id": "srt",
+      "role": "Thư Ký",
+      "id": 7
+    },
+    {
+      "position_id": "test",
+      "role": "Chức Vụ Test",
+      "id": 8
+    },
+    {
+      "position_id": "serc",
+      "role": "Bảo Vệ",
+      "id": 9
+    },
+    {
+      "position_id": "mng",
+      "role": "Giám Đốc Công Ty",
+      "id": 10
     }
-]
+  ]

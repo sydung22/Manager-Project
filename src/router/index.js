@@ -79,12 +79,27 @@ const routes = [
           requiredAuth: true,
         },
       },
+      {
+        path: "/report",
+        name: "report",
+        component: () => import("./../views/Report"),
+      },
     ],
   },
   {
     path: "/login",
     name: "login",
     component: () => import("./../views/Login"),
+  },
+  {
+    path: "*",
+    name: "404",
+    component: () => import("./../views/404"),
+  },
+  {
+    path: "/pageupdate",
+    name: "nopage",
+    component: () => import("./../views/NoPage"),
   },
 ];
 

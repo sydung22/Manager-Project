@@ -6,9 +6,7 @@
     "db:serve": "json-server --watch db.json --port=3001",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "postinstall": "npm run build",
-    "start": "json-server --watch db.json --port=3001 && node server.js"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@vue/composition-api": "^1.4.4",

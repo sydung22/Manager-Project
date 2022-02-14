@@ -18,13 +18,7 @@
             </v-card-title>
             <v-dialog v-model="dialog" persistent max-width="600px">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="green"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                  class="ms-5 my-4"
-                >
+                <v-btn color="green" dark v-bind="attrs" v-on="on" class="ms-5 my-4">
                   Thêm Mới
                 </v-btn>
               </template>
@@ -98,7 +92,7 @@
                       >Chi Tiết <v-icon dark right> mdi-eye </v-icon>
                     </v-btn>
                   </template>
-                  <template v-slot:default="dialog">
+                  <template v-slot:default="dialogDetails">
                     <v-card class="pb-2">
                       <v-card-text class="pb-0">
                         <v-container class="px-0 pt-13 pb-0">
@@ -108,7 +102,7 @@
                           <v-row>
                             <v-col cols="12">
                               <v-text-field
-                                label="ID*"
+                                label="ID"
                                 required
                                 :value="detailsItem.id"
                                 readonly
@@ -116,7 +110,7 @@
                             </v-col>
                             <v-col cols="12">
                               <v-text-field
-                                label="Email*"
+                                label="Email"
                                 required
                                 :value="detailsItem.email"
                                 readonly
@@ -124,7 +118,7 @@
                             </v-col>
                             <v-col cols="12">
                               <v-text-field
-                                label="Password*"
+                                label="Password"
                                 required
                                 :value="detailsItem.password"
                                 readonly
@@ -132,7 +126,7 @@
                             </v-col>
                             <v-col cols="12">
                               <v-text-field
-                                label="Chức Vụ*"
+                                label="Chức Vụ"
                                 required
                                 :value="detailsItem.role"
                                 readonly
@@ -150,11 +144,24 @@
                         </v-container>
                       </v-card-text>
                       <v-card-actions class="justify-end">
-                        <v-btn text @click="dialog.value = false" color="primary">Đóng</v-btn>
+                        <v-btn
+                          text
+                          @click="dialogDetails.value = false"
+                          color="primary"
+                          >Đóng</v-btn
+                        >
                       </v-card-actions>
                     </v-card>
                   </template>
                 </v-dialog>
+                <!-- <user-details
+                  :id="detailsItem.id"
+                  :email="detailsItem.email"
+                  :password="detailsItem.password"
+                  :role="detailsItem.role"
+                  :timeLogin="detailsItem.timeLogin"
+                  :detailsUser="DetailsUser(item)"
+                ></user-details> -->
                 <v-btn
                   class="ma-2"
                   color="orange darken-2"
@@ -172,15 +179,6 @@
               <template v-slot:no-data>
                 <v-btn color="primary"> Reset </v-btn>
               </template>
-              <!-- <template v-slot:top>
-              <v-text-field
-                v-model="search"
-                append-icon="mdi-magnify"
-                label="Search"
-                single-line
-                hide-details
-                class="mx-5"
-              ></v-text-field> </template> -->
             </v-data-table>
           </v-card>
         </v-col>
@@ -227,12 +225,19 @@
       title="Thông báo!"
       description="Xoá dữ liệu thành công!!"
     ></popup>
+    <popup
+      :show="showDialogDuplicateEmail"
+      :cancel="cancel"
+      :confirm="confirm"
+      text="Oke ^^"
+      title="Thông báo!"
+      description="Email này đã tồn tại!! Vui lòng chọn email khác"
+    ></popup>
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 import Popup from "../components/Popup.vue";
-import md5 from "md5";
 export default {
   components: { Popup },
   data() {
@@ -266,6 +271,7 @@ export default {
         },
       ],
       user: {
+        id: "",
         firstName: "",
         lastName: "",
         email: "",
@@ -276,17 +282,20 @@ export default {
         depart_name: "",
         address: "",
         imgUrl: "",
+        timeLogin: "",
       },
       deleteId: 0,
       detailsId: 0,
       account: [],
       search: "",
       dialog: false,
+      dialogDetails: false,
       showDialogDelete: false,
       showDialogUpdate: false,
       showDialogCreateRequired: false,
       showDialogCreateSuccess: false,
       showDialogDeleteSuccess: false,
+      showDialogDuplicateEmail: false,
       listRole: [],
       detailsItem: {},
     };
@@ -294,26 +303,33 @@ export default {
   methods: {
     async DetailsUser(item) {
       this.detailsId = item.id;
-      const res = await axios.get(
-        `${process.env.VUE_APP_SERVER_URL}/user/${this.detailsId}`
-      );
-      this.detailsItem = res.data;
+      const resData = JSON.parse(localStorage.getItem("user"));
+      const details = [...resData].find((el) => el.id === this.detailsId);
+      this.detailsItem = details;
     },
     handleRow(item) {
-      this.deleteId = item.id;
+      this.deleteId = item.email;
       this.showDialogDelete = true;
     },
-    async handleDelete() {
-      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/user/${this.deleteId}`);
+    handleDelete() {
+      const resDataUser = JSON.parse(localStorage.getItem("user"));
+      const resDataEmp = JSON.parse(localStorage.getItem("employee"));
+      const indexDel = resDataUser.findIndex((el) => el.email === this.deleteId);
+      const index = resDataEmp.findIndex((el) => el.email === this.deleteId);
+      resDataEmp.splice(index, 1);
+      localStorage.setItem("employee", JSON.stringify(resDataEmp));
+      resDataUser.splice(indexDel, 1);
+      this.account = resDataUser;
+      localStorage.setItem("user", JSON.stringify(resDataUser));
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
-      setTimeout(() => window.location.reload(), 1200);
     },
     cancel() {
       this.showDialogDelete = false;
       this.showDialogUpdate = false;
-      this.showDialogCreateRequired = false;
-      this.showDialogCreateSuccess = false;
+      // this.showDialogCreateRequired = false;
+      // this.showDialogCreateSuccess = false;
+      // this.showDialogDuplicateEmail = false;
     },
     confirm() {
       this.showDialogDelete = false;
@@ -321,6 +337,13 @@ export default {
       this.showDialogCreateRequired = false;
       this.showDialogCreateSuccess = false;
       this.showDialogDeleteSuccess = false;
+      this.showDialogDuplicateEmail = false;
+    },
+    userExists(email) {
+      const resUser = JSON.parse(localStorage.getItem("user"));
+      return resUser.some(function(el) {
+        return el.email === email;
+      });
     },
     async createUser() {
       if (
@@ -331,37 +354,48 @@ export default {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/user`, {
-          email: this.user.email,
-          password: this.user.password,
-          role: this.user.role,
-        });
-        let res2 = await axios.post(`${process.env.VUE_APP_SERVER_URL}/employee`, {
-          firstName: this.user.firstName,
-          lastName: this.user.lastName,
-          email: this.user.email,
-          password: this.user.password,
-          role: this.user.role,
-          position_id: this.user.position_id,
-          depart_id: this.user.depart_id,
-          depart_name: this.user.depart_name,
-          address: this.user.address,
-          imgUrl: this.user.imgUrl,
-        });
-        console.log(res);
-        console.log(res2);
-        this.dialog = false;
-        this.showDialogCreateSuccess = true;
-        setTimeout(() => window.location.reload(), 1500);
+        if (this.userExists(this.user.email) == true) {
+          this.showDialogDuplicateEmail = true;
+          this.dialog = false;
+        } else {
+          const resUser = JSON.parse(localStorage.getItem("user"));
+          const detailsIdUser = resUser[resUser.length - 1];
+          resUser.push({
+            id: detailsIdUser.id + 1,
+            email: this.user.email,
+            password: this.user.password,
+            role: this.user.role,
+            timeLogin: this.user.timeLogin,
+          });
+          this.account = resUser;
+          localStorage.setItem("user", JSON.stringify(resUser));
+          const resEm = JSON.parse(localStorage.getItem("employee"));
+          const detailsIdEm = resEm[resEm.length - 1];
+          resEm.push({
+            id: detailsIdEm.id + 1,
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            email: this.user.email,
+            password: this.user.password,
+            role: this.user.role,
+            position_id: this.user.position_id,
+            depart_id: this.user.depart_id,
+            depart_name: this.user.depart_name,
+            address: this.user.address,
+            imgUrl: this.user.imgUrl,
+          });
+          localStorage.setItem("employee", JSON.stringify(resEm));
+          this.dialog = false;
+          this.showDialogCreateSuccess = true;
+        }
       }
     },
   },
   async mounted() {
-    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/user`);
-    this.account = res.data;
-    console.log(md5(this.account[0].password));
-    const resPo = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
-    let result = resPo.data.map((a) => a.role);
+    const res = JSON.parse(localStorage.getItem("user"));
+    this.account = res;
+    const resPo = JSON.parse(localStorage.getItem("position"));
+    let result = resPo.map((a) => a.role);
     this.listRole = result;
   },
 };

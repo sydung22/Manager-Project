@@ -11,7 +11,7 @@
                     <v-card-text class="mt-12">
                       <h2 class="text-center mb-3">Login in to Your Account</h2>
                       <h5 class="text-center grey--text">
-                        Log in to your account so you can continue builiding
+                        Log in to your account so you can continue builiding.
                         <br />and editing your onboarding flows
                       </h5>
                       <v-row
@@ -65,13 +65,7 @@
                             Or Log in using
                           </h5>
                           <div
-                            class="
-                              d-flex
-                              justify-space-between
-                              align-center
-                              mx-10
-                              mb-16
-                            "
+                            class="d-flex justify-space-between align-center mx-10 mb-16"
                           >
                             <v-btn depressed outlined color="grey">
                               <v-icon color="red">mdi-google</v-icon>
@@ -92,19 +86,15 @@
                   <v-col cols="12" md="6" class="blue rounded-bl-xl">
                     <div style="text-align: center; padding: 180px 0">
                       <v-card-text class="white--text">
-                        <h1 class="text-center mb-5">
-                          Don't Have an Account Yet?
-                        </h1>
+                        <h1 class="text-center mb-5">Don't Have an Account Yet?</h1>
                         <h4 class="text-center">
-                          Let's get you all set up so you can start creating
-                          your your first<br />
+                          Let's get you all set up so you can start creating your
+                          your first<br />
                           onboarding experience
                         </h4>
                       </v-card-text>
                       <div class="text-center">
-                        <v-btn tile outlined dark @click="step++"
-                          >SIGN UP</v-btn
-                        >
+                        <v-btn tile outlined dark @click="step++">SIGN UP</v-btn>
                       </div>
                     </div>
                   </v-col>
@@ -117,8 +107,7 @@
                       <v-card-text class="white--text">
                         <h1 class="text-center mb-5">Alredy Signed up?</h1>
                         <h4 class="text-center">
-                          Log in to your account so you can continue building
-                          and<br />
+                          Log in to your account so you can continue building and<br />
                           editing your onboarding flows
                         </h4>
                       </v-card-text>
@@ -207,21 +196,14 @@
                               >
                             </v-col>
                           </v-row>
-                          <v-btn color="blue" dark block tile @click="signup"
-                            >Sign up</v-btn
-                          >
+                          <!-- <v-btn color="blue" dark block tile @click="signup">Sign up</v-btn> -->
+                          <v-btn color="blue" dark block tile>Sign up</v-btn>
 
                           <h5 class="text-center grey--text mt-4 mb-3">
                             Or Sign up using
                           </h5>
                           <div
-                            class="
-                              d-flex
-                              justify-space-between
-                              align-center
-                              mx-10
-                              mb-11
-                            "
+                            class="d-flex justify-space-between align-center mx-10 mb-11"
                           >
                             <v-btn depressed outlined color="grey">
                               <v-icon color="red">mdi-google</v-icon>
@@ -282,7 +264,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import Popup from "../components/Popup.vue";
 export default {
   components: { Popup },
@@ -290,7 +272,8 @@ export default {
     return {
       step: 1,
       requiredEmail: (value) => value.length > 0 || "You must input your email",
-      requiredPassword: (value) => value.length > 0 || "You must input your password",
+      requiredPassword: (value) =>
+        value.length > 0 || "You must input your password",
       user: {},
       userSignUp: {
         firstName: "",
@@ -309,62 +292,98 @@ export default {
       showDialogSignUp: false,
       showDialogPassword: false,
       showDialogSuccess: false,
+      month: "",
+      minutes: "",
     };
   },
   methods: {
     async login() {
-      let res = await axios.get(
-        `${process.env.VUE_APP_SERVER_URL}/user?email=${this.user.email}&password=${this.user.password}`
+      // using localStorage
+      const datalocal = JSON.parse(localStorage.getItem("user"));
+      const resEmail = [...datalocal].find((el) => el.email === this.user.email);
+      const resPass = [...datalocal].find(
+        (el) => el.password === this.user.password
       );
-      console.log(res);
-      if (res.data.length > 0) {
-        // let resEm = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee?email=${this.user.email}`)
-        // this.$store.dispatch('actionSetUserInfo', `${resEm.data[0].lastName} ${resEm.data[0].firstName}`);
+      if (resEmail && resPass) {
         setTimeout(() => this.$store.dispatch("actionSetDialog", true), 200);
-        // console.log(resEm.status)
-        localStorage.setItem("user-info", JSON.stringify(res.data[0]));
+        localStorage.setItem("user-info", JSON.stringify(resEmail));
         this.$router.push("/");
+        let today = new Date();
+        // if (today.getMonth() < 10) {
+        //   this.month = "0" + (today.getMonth() + 1);
+        // } else {
+        //   this.month = today.getMonth() + 1;
+        // }
+        // if (today.getMinutes() < 10) {
+        //   this.minutes = "0" + today.getMinutes();
+        // } else {
+        //   this.minutes = today.getMinutes();
+        // }
+        // let date = today.getDate() + "-" + this.month + "-" + today.getFullYear();
+        // let time = today.getHours() + ":" + this.minutes + ":" + today.getSeconds();
+        // let timeNow = date + "  " + time;
+        // console.log(timeNow);
+        const resDataInf = JSON.parse(localStorage.getItem("user-info"));
+        const resDataUser = JSON.parse(localStorage.getItem("user"));
+        const index = resDataUser.findIndex((el) => el.email === resDataInf.email);
+        resDataUser.splice(index, 1, {
+          id: resDataInf.id,
+          email: resDataInf.email,
+          password: resDataInf.password,
+          role: resDataInf.role,
+          timeLogin: today.toLocaleString(),
+        });
+        localStorage.setItem("user", JSON.stringify(resDataUser));
       } else {
         this.showDialog = true;
       }
+      // using API
+      // let res = await axios.get(
+      //   `${process.env.VUE_APP_SERVER_URL}/user?email=${this.user.email}&password=${this.user.password}`
+      // );
+      // console.log(res);
+      // if (res.data.length > 0) {
+      //   // let resEm = await axios.get(`${process.env.VUE_APP_SERVER_URL}/employee?email=${this.user.email}`)
+      //   // this.$store.dispatch('actionSetUserInfo', `${resEm.data[0].lastName} ${resEm.data[0].firstName}`);
+      //   setTimeout(() => this.$store.dispatch("actionSetDialog", true), 200);
+      //   // console.log(resEm.status)
+      //   localStorage.setItem("user-info", JSON.stringify(res.data[0]));
+      //   this.$router.push("/");
+      // } else {
+      //   this.showDialog = true;
+      // }
     },
-    async signup() {
-      if (
-        this.userSignUp.firstName == "" ||
-        this.userSignUp.lastName == "" ||
-        this.userSignUp.email == "" ||
-        this.userSignUp.password == "" ||
-        this.userSignUp.passwordConfirm == ""
-      ) {
-        this.showDialogSignUp = true;
-      } else {
-        if (this.userSignUp.password === this.userSignUp.passwordConfirm) {
-          let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/user`, {
-            email: this.userSignUp.email,
-            password: this.userSignUp.password,
-            role: this.userSignUp.role,
-          });
-          let res2 = await axios.post(`${process.env.VUE_APP_SERVER_URL}/employee`, {
-            firstName: this.userSignUp.firstName,
-            lastName: this.userSignUp.lastName,
-            email: this.userSignUp.email,
-            password: this.userSignUp.password,
-            role: this.userSignUp.role,
-            position_id: this.userSignUp.position_id,
-            depart_id: this.userSignUp.depart_id,
-            depart_name: this.userSignUp.depart_name,
-            address: this.userSignUp.address,
-            imgUrl: this.userSignUp.imgUrl,
-          });
-          console.log(res);
-          console.log(res2);
-          this.showDialogSuccess = true;
-          this.step = 1;
-        } else {
-          this.showDialogPassword = true;
-        }
-      }
-    },
+    // async signup() {
+    //   if (this.userSignUp.firstName == "" || this.userSignUp.lastName == "" || this.userSignUp.email == "" || this.userSignUp.password == "" || this.userSignUp.passwordConfirm == "") {
+    //     this.showDialogSignUp = true;
+    //   } else {
+    //     if (this.userSignUp.password === this.userSignUp.passwordConfirm) {
+    //       let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/user`, {
+    //         email: this.userSignUp.email,
+    //         password: this.userSignUp.password,
+    //         role: this.userSignUp.role,
+    //       });
+    //       let res2 = await axios.post(`${process.env.VUE_APP_SERVER_URL}/employee`, {
+    //         firstName: this.userSignUp.firstName,
+    //         lastName: this.userSignUp.lastName,
+    //         email: this.userSignUp.email,
+    //         password: this.userSignUp.password,
+    //         role: this.userSignUp.role,
+    //         position_id: this.userSignUp.position_id,
+    //         depart_id: this.userSignUp.depart_id,
+    //         depart_name: this.userSignUp.depart_name,
+    //         address: this.userSignUp.address,
+    //         imgUrl: this.userSignUp.imgUrl,
+    //       });
+    //       console.log(res);
+    //       console.log(res2);
+    //       this.showDialogSuccess = true;
+    //       this.step = 1;
+    //     } else {
+    //       this.showDialogPassword = true;
+    //     }
+    //   }
+    // },
     cancel() {
       console.log("cancel");
       this.showDialog = false;

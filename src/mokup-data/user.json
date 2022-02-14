@@ -1,74 +1,212 @@
 [
-    {
-        "id": 1,
-        "email": "admin",
-        "password": "admin",
-        "role": "admin"
-    },
-    {
-        "id": 2,
-        "email": "tranluong@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    },
-    {
-        "id": 3,
-        "email": "sydung@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    },
-    {
-        "id": 4,
-        "email": "thuydung@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    },
-    {
-        "id": 5,
-        "email": "hieuvo@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    },
-    {
-        "id": 6,
-        "email": "cason@gmail.com",
-        "password": "123456789",
-        "role": "department"
-    },
-    {
-        "id": 7,
-        "email": "k2@gmail.com",
-        "password": "123456789",
-        "role": "director"
-    },
-    {
-        "id": 8,
-        "email": "k3@gmail.com",
-        "password": "123456789",
-        "role": "department"
-    },
-    {
-        "id": 9,
-        "email": "k4@gmail.com",
-        "password": "123456789",
-        "role": "department"
-    },
-    {
-        "id": 10,
-        "email": "k5@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    },
-    {
-        "id": 11,
-        "email": "k6@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    },
-    {
-        "id": 12,
-        "email": "k7@gmail.com",
-        "password": "123456789",
-        "role": "employee"
-    }
+  {
+    "id": 1,
+    "email": "havi@gmail.com",
+    "password": "12345678",
+    "role": "Giám Đốc Công Ty",
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "id": 2,
+    "email": "luongtran@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "id": 3,
+    "email": "sydung@gmail.com",
+    "password": "12345678",
+    "role": "Admin",
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "id": 4,
+    "email": "thuydung@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "id": 5,
+    "email": "hieuvo@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "id": 6,
+    "email": "thuytrang@gmail.com",
+    "password": "12345678",
+    "role": "Trưởng Phòng",
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "maichi08@gmail.com",
+    "password": "12345678",
+    "role": "Trưởng Phòng",
+    "id": 7,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "levi123@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 8,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "anhtuan@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 9,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "hoangyen@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 10,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "vanhuy@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 11,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "vanthanh@gmail.com",
+    "password": "1234567890",
+    "role": "Trưởng Phòng",
+    "timeLogin": "24/01/2022 15:32:57",
+    "id": 12
+  },
+  {
+    "email": "vankhai@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 13,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "hongphong@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 14,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "duyviet@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 15,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "tiendat@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 16,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "quangdieu@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 17,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "tiennguyen@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 18,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "ngoctran@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 19,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "truongphong@gmail.com",
+    "password": "12345678",
+    "role": "Trưởng Phòng",
+    "id": 20,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "hoanganh@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 21,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "vanvu@gmail.com",
+    "password": "12345678",
+    "role": "Giám Đốc CSVC",
+    "id": 22,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "minhchau@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 23,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "thaovy@gmail.com",
+    "password": "123456789",
+    "role": "Admin",
+    "id": 24,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "thaingan@gmail.com",
+    "password": "12345678",
+    "role": "Giám đốc CSVC",
+    "id": 25,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "vukhanhhuyen@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 26,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "lekhanhhuyen@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 27,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "thugiang@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 28,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "quocthang@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 29,
+    "timeLogin": "12:12:22, 22/2/2022"
+  },
+  {
+    "email": "hongnguyen@gmail.com",
+    "password": "12345678",
+    "role": "Nhân Viên",
+    "id": 30,
+    "timeLogin": "12:12:22, 22/2/2022"
+  }
 ]

@@ -18,13 +18,7 @@
             </v-card-title>
             <v-dialog v-model="dialog" persistent max-width="600px">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="green"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                  class="ms-5 my-4"
-                >
+                <v-btn color="green" dark v-bind="attrs" v-on="on" class="ms-5 my-4">
                   Thêm Mới
                 </v-btn>
               </template>
@@ -54,6 +48,13 @@
                           label="Địa Chỉ"
                           required
                           v-model="departmentItem.depart_address"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Link Hình Ảnh"
+                          required
+                          v-model="departmentItem.depart_image"
                         ></v-text-field>
                       </v-col>
                     </v-row>
@@ -86,18 +87,122 @@
               }"
             >
               <template v-slot:[`item.actions`]="{ item }">
-                <v-btn class="ma-2" color="primary" dark>
-                  Chi Tiết
-                  <v-icon dark right> mdi-eye </v-icon>
-                </v-btn>
-                <v-btn class="ma-2" color="orange darken-2" dark>
-                  Sửa
-                  <v-icon dark right> mdi-pencil </v-icon>
-                </v-btn>
-                <v-btn class="ma-2" color="red" dark @click="handleRow(item)">
-                  Xóa
-                  <v-icon dark right> mdi-delete </v-icon>
-                </v-btn>
+                <div v-if="roleEm !== 'Trưởng Phòng'">
+                  <v-dialog max-width="1000" persistent>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        color="primary"
+                        v-bind="attrs"
+                        v-on="on"
+                        @click="DetailsUser(item)"
+                        >Chi Tiết <v-icon dark right> mdi-eye </v-icon>
+                      </v-btn>
+                    </template>
+                    <template v-slot:default="dialog">
+                      <v-card class="pb-3">
+                        <v-card-text class="pb-0">
+                          <v-container class="px-0 pt-13 pb-0">
+                            <h1 class="px-5 py-0 pb-5 text-center primary--text">
+                              Thông Tin Phòng Ban
+                            </h1>
+                            <v-row align="center" justify="center" class="">
+                              <v-col cols="12" sm="6" class="text-center">
+                                <div class="mb-8" v-if="detailsItem.depart_image">
+                                  <v-img
+                                    aspect-ratio="30"
+                                    :src="detailsItem.depart_image"
+                                    height="300px"
+                                  />
+                                </div>
+                                <div class="mb-8" v-else>
+                                  <v-img
+                                    aspect-ratio="30"
+                                    src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-office-icon-for-your-project-png-image_4897910.jpg"
+                                    height="300px"
+                                  />
+                                </div>
+                                <h1 class="black--text mt-2 mb-6">
+                                  {{ detailsItem.depart_name }}
+                                </h1>
+                              </v-col>
+                              <v-col cols="12" sm="6" class="text-center pt-0">
+                                <v-form>
+                                  <v-container>
+                                    <v-row>
+                                      <v-col cols="12" md="12" class="pb-0 pt-1">
+                                        <v-text-field
+                                          label="ID"
+                                          :value="detailsItem.id"
+                                          required
+                                          class="pt-1"
+                                          readonly
+                                        ></v-text-field>
+                                      </v-col>
+                                      <v-col cols="12" md="12" class="pb-0 pt-1">
+                                        <v-text-field
+                                          label="Mã Phòng Ban"
+                                          :value="detailsItem.depart_id"
+                                          required
+                                          readonly
+                                        ></v-text-field>
+                                      </v-col>
+
+                                      <v-col cols="12" md="12" class="pb-0 pt-1">
+                                        <v-text-field
+                                          label="Tên Phòng Ban"
+                                          :value="detailsItem.depart_name"
+                                          required
+                                          readonly
+                                        ></v-text-field>
+                                      </v-col>
+
+                                      <v-col cols="12" md="12" class="pb-0 pt-1">
+                                        <v-text-field
+                                          label="Số Lượng Nhân Viên"
+                                          :value="qtyDepartment.length"
+                                          required
+                                          readonly
+                                        ></v-text-field>
+                                      </v-col>
+
+                                      <v-col cols="12" md="12" class="pb-0 pt-1">
+                                        <v-text-field
+                                          label="Địa Chỉ Phòng Ban"
+                                          :value="detailsItem.depart_address"
+                                          required
+                                          readonly
+                                        ></v-text-field>
+                                      </v-col>
+                                    </v-row>
+                                  </v-container>
+                                </v-form>
+                              </v-col>
+                            </v-row>
+                          </v-container>
+                        </v-card-text>
+                        <v-card-actions class="justify-end">
+                          <v-btn text @click="dialog.value = false" color="primary"
+                            >Đóng</v-btn
+                          >
+                        </v-card-actions>
+                      </v-card>
+                    </template>
+                  </v-dialog>
+                  <v-btn class="ma-2" color="orange darken-2" dark>
+                    Sửa
+                    <v-icon dark right> mdi-pencil </v-icon>
+                  </v-btn>
+                  <v-btn class="ma-2" color="red" dark @click="handleRow(item)">
+                    Xóa
+                    <v-icon dark right> mdi-delete </v-icon>
+                  </v-btn>
+                </div>
+                <div v-else>
+                  <v-btn class="ma-2" color="primary" dark>
+                    Chi Tiết
+                    <v-icon dark right> mdi-eye </v-icon>
+                  </v-btn>
+                </div>
               </template>
               <template v-slot:no-data>
                 <v-btn color="primary"> Reset </v-btn>
@@ -124,7 +229,7 @@
       title="Thông báo!"
       description="Xoá dữ liệu thành công!!"
     ></popup>
-                <popup
+    <popup
       :show="showDialogCreateRequired"
       :cancel="cancel"
       :confirm="confirm"
@@ -143,7 +248,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 import Popup from "../components/Popup.vue";
 export default {
   components: { Popup },
@@ -171,7 +276,7 @@ export default {
           align: "center",
         },
         {
-          text: "ACTIONS",
+          text: "Chức Năng",
           value: "actions",
           align: "center",
           sortable: false,
@@ -180,54 +285,78 @@ export default {
       department: [],
       search: "",
       dialog: false,
+      roleEm: "",
+      detailsId: 0,
+      detailsItem: {},
       departmentItem: {
+        id: "",
         depart_id: "",
         depart_name: "",
         depart_address: "",
+        depart_image: "",
       },
       showDialogDelete: false,
       showDialogDeleteSuccess: false,
-            showDialogCreateRequired: false,
+      showDialogCreateRequired: false,
       showDialogCreateSuccess: false,
+      qtyDepartment: [],
     };
   },
   async mounted() {
-    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/departments`);
-    if (res.status === 200) {
-      this.department = res.data;
-      console.log(this.department);
-    }
+    const res = JSON.parse(localStorage.getItem("departments"));
+    this.department = res;
+    const dataDe = JSON.parse(localStorage.getItem("user-info"));
+    this.roleEm = dataDe.role;
   },
   methods: {
     async createDepartment() {
       if (
         this.departmentItem.depart_id == "" ||
         this.departmentItem.depart_name == "" ||
-        this.departmentItem.depart_address == ""
+        this.departmentItem.depart_address == "" ||
+        this.departmentItem.depart_image == ""
       ) {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/departments`, {
+        const resDe = JSON.parse(localStorage.getItem("departments"));
+        const detailsIdDe = resDe[resDe.length - 1];
+        resDe.push({
+          id: detailsIdDe.id + 1,
           depart_id: this.departmentItem.depart_id,
           depart_name: this.departmentItem.depart_name,
           depart_address: this.departmentItem.depart_address,
+          depart_image: this.departmentItem.depart_image,
         });
-        console.log(res);
+        this.department = resDe;
+        localStorage.setItem("departments", JSON.stringify(resDe));
         this.dialog = false;
         this.showDialogCreateSuccess = true;
-        setTimeout(() => window.location.reload(), 1500);
       }
+    },
+    async DetailsUser(item) {
+      this.detailsId = item.id;
+      const resData = JSON.parse(localStorage.getItem("departments"));
+      const details = [...resData].find((el) => el.id === this.detailsId);
+      this.detailsItem = details;
+      const dataEm = JSON.parse(localStorage.getItem("employee"));
+      const detailsQty = dataEm.filter(
+        (el) => el.depart_name === this.detailsItem.depart_name
+      );
+      this.qtyDepartment = detailsQty;
     },
     handleRow(item) {
       this.deleteId = item.id;
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/departments/${this.deleteId}`);
+      const resDataDe = JSON.parse(localStorage.getItem("departments"));
+      const indexDel = resDataDe.findIndex((el) => el.id === this.deleteId);
+      resDataDe.splice(indexDel, 1);
+      this.department = resDataDe;
+      localStorage.setItem("departments", JSON.stringify(resDataDe));
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
-      setTimeout(() => window.location.reload(), 1200);
     },
     cancel() {
       this.showDialogDelete = false;

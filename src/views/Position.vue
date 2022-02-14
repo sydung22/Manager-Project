@@ -18,13 +18,7 @@
             </v-card-title>
             <v-dialog v-model="dialog" persistent max-width="600px">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="green"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                  class="ms-5 my-4"
-                >
+                <v-btn color="green" dark v-bind="attrs" v-on="on" class="ms-5 my-4">
                   Thêm Mới
                 </v-btn>
               </template>
@@ -79,11 +73,73 @@
               }"
             >
               <template v-slot:[`item.actions`]="{ item }">
-                <v-btn class="ma-2" color="primary" dark>
-                  Chi Tiết
-                  <v-icon dark right> mdi-eye </v-icon>
-                </v-btn>
-                <v-btn class="ma-2" color="orange darken-2" dark>
+                <v-dialog max-width="600" persistent>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      color="primary"
+                      v-bind="attrs"
+                      v-on="on"
+                      @click="DetailsUser(item)"
+                      >Chi Tiết <v-icon dark right> mdi-eye </v-icon>
+                    </v-btn>
+                  </template>
+                  <template v-slot:default="dialog">
+                    <v-card class="pb-2">
+                      <v-card-text class="pb-0">
+                        <v-container class="px-0 pt-13 pb-0">
+                          <h1 class="px-5 py-0 text-center primary--text">
+                            Thông Tin Chức Vụ
+                          </h1>
+                          <v-row>
+                            <v-col cols="12">
+                              <v-text-field
+                                label="ID"
+                                required
+                                :value="detailsItem.id"
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12">
+                              <v-text-field
+                                label="Mã Chức Vụ"
+                                required
+                                :value="detailsItem.position_id"
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12">
+                              <v-text-field
+                                label="Tên Chức Vụ"
+                                required
+                                :value="detailsItem.role"
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12">
+                              <v-text-field
+                                label="Số Lượng Nhân Sự"
+                                required
+                                :value="qtyPositon.length"
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                          </v-row>
+                        </v-container>
+                      </v-card-text>
+                      <v-card-actions class="justify-end">
+                        <v-btn text @click="dialog.value = false" color="primary"
+                          >Đóng</v-btn
+                        >
+                      </v-card-actions>
+                    </v-card>
+                  </template>
+                </v-dialog>
+                <v-btn
+                  class="ma-2"
+                  color="orange darken-2"
+                  dark
+                  @click="showDialogUpdate = true"
+                >
                   Sửa
                   <v-icon dark right> mdi-pencil </v-icon>
                 </v-btn>
@@ -117,7 +173,7 @@
       title="Thông báo!"
       description="Xoá dữ liệu thành công!!"
     ></popup>
-            <popup
+    <popup
       :show="showDialogCreateRequired"
       :cancel="cancel"
       :confirm="confirm"
@@ -136,7 +192,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 import Popup from "../components/Popup.vue";
 export default {
   components: { Popup },
@@ -167,8 +223,12 @@ export default {
       ],
       position: [],
       search: "",
+      detailsItem: {},
+      detailsId: 0,
+      deleteId: 0,
       dialog: false,
       positionItem: {
+        id: "",
         position_id: "",
         role: "",
       },
@@ -176,14 +236,12 @@ export default {
       showDialogDeleteSuccess: false,
       showDialogCreateRequired: false,
       showDialogCreateSuccess: false,
+      qtyPositon: [],
     };
   },
   async mounted() {
-    const res = await axios.get(`${process.env.VUE_APP_SERVER_URL}/position`);
-    if (res.status === 200) {
-      this.position = res.data;
-      console.log(this.position);
-    }
+    const res = JSON.parse(localStorage.getItem("position"));
+    this.position = res;
   },
   methods: {
     async createPosition() {
@@ -191,25 +249,40 @@ export default {
         this.showDialogCreateRequired = true;
         this.dialog = false;
       } else {
-        let res = await axios.post(`${process.env.VUE_APP_SERVER_URL}/position`, {
+        const resPo = JSON.parse(localStorage.getItem("position"));
+        const detailsIdDe = resPo[resPo.length - 1];
+        resPo.push({
+          id: detailsIdDe.id + 1,
           position_id: this.positionItem.position_id,
           role: this.positionItem.role,
         });
-        console.log(res);
+        this.position = resPo;
+        localStorage.setItem("position", JSON.stringify(resPo));
         this.dialog = false;
         this.showDialogCreateSuccess = true;
-        setTimeout(() => window.location.reload(), 1500);
       }
+    },
+    async DetailsUser(item) {
+      this.detailsId = item.id;
+      const resData = JSON.parse(localStorage.getItem("position"));
+      const details = [...resData].find((el) => el.id === this.detailsId);
+      this.detailsItem = details;
+      const dataEm = JSON.parse(localStorage.getItem("employee"));
+      const detailsQty = dataEm.filter((el) => el.role === this.detailsItem.role);
+      this.qtyPositon = detailsQty;
     },
     handleRow(item) {
       this.deleteId = item.id;
       this.showDialogDelete = true;
     },
     async handleDelete() {
-      await axios.delete(`${process.env.VUE_APP_SERVER_URL}/position/${this.deleteId}`);
+      const resDataPo = JSON.parse(localStorage.getItem("position"));
+      const indexDel = resDataPo.findIndex((el) => el.id === this.deleteId);
+      resDataPo.splice(indexDel, 1);
+      this.position = resDataPo;
+      localStorage.setItem("position", JSON.stringify(resDataPo));
       this.showDialogDelete = false;
       this.showDialogDeleteSuccess = true;
-      setTimeout(() => window.location.reload(), 1200);
     },
     cancel() {
       this.showDialogDelete = false;

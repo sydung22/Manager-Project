@@ -16,7 +16,7 @@ import Sidebar from "@/components/Sidebar";
 import Topbar from "@/components/Topbar";
 export default {
   name: "Layout",
-  components: { Topbar, Sidebar },
+  components: { Topbar, Sidebar},
   data: () => ({
     cards: ["Today", "Yesterday"],
     drawer: null,
